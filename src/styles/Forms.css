@@ -1,0 +1,43 @@
+.personal-details-form-container,
+.education-form-container,
+.experience-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.personal-details-form-title-toggle,
+.education-form-title-toggle,
+.experience-form-title-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-top: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.personal-details-form-buttons,
+.education-form-buttons,
+.experience-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

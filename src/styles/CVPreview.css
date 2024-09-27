@@ -1,0 +1,52 @@
+/* Personal Details */
+.personal-details-preview-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.personal-details-preview-title,
+.education-preview-title,
+.experience-preview-title {
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.phone-email-address {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-email-address img {
+  width: 20px;
+  height: 20px;
+}
+
+.phone,
+.email,
+.address {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* Education */
+.education-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field-university-degree {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Experience*/
+.experience-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.company-position {
+  display: flex;
+  flex-direction: column;
+}
