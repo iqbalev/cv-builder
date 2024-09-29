@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
   border: 1px solid rgb(0, 0, 0);
 }
@@ -17,7 +17,9 @@
   align-items: center;
 }
 
-form {
+.personal-details-form-details,
+.education-form-details,
+.experience-form-details {
   display: flex;
   gap: 10px;
   flex-direction: column;
@@ -28,10 +30,15 @@ label {
   flex-direction: column;
 }
 
-input {
+input,
+textarea {
   margin-top: 5px;
-  padding: 5px;
+  padding: 8px;
   width: 100%;
+}
+
+textarea {
+  resize: none;
 }
 
 .personal-details-form-buttons,
@@ -40,4 +47,12 @@ input {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+}
+
+.personal-details-form-overview,
+.education-form-overview,
+.experience-form-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

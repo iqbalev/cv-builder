@@ -1,7 +1,16 @@
 /* Personal Details */
-.personal-details-preview-container {
+.personal-details-preview-container,
+.education-preview-container,
+.experience-preview-container {
   display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.personal-details-preview-container {
   justify-content: space-between;
+  flex-direction: row;
 }
 
 .personal-details-preview-title,
@@ -30,7 +39,7 @@
 }
 
 /* Education */
-.education-details {
+.education-preview-details {
   display: flex;
   justify-content: space-between;
 }
@@ -41,12 +50,14 @@
 }
 
 /* Experience*/
-.experience-details {
+.experience-preview-details {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.company-position {
+.company-position-start-end {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
