@@ -13,6 +13,7 @@ function App() {
     email: "johndoe@gmail.com",
     address: "New York, US",
   });
+
   const [education, setEducation] = useState({
     fieldOfStudy: "Computer Science",
     universityName: "Massachusetts Institute of Technology",
@@ -20,9 +21,15 @@ function App() {
     startDate: "2018/01/01",
     endDate: "2022/01/01",
   });
+
   const [experience, setExperience] = useState({
     positionTitle: "Frontend Web Developer",
     companyName: "Google",
+    responsibilities: [
+      "Implementing UI/UX designs provided by the design team",
+      "Consuming and rendering APIs from the backend",
+      "Creating a responsive and interactive website",
+    ],
     startDate: "2022/02/02",
     endDate: "Present",
   });
@@ -39,7 +46,13 @@ function App() {
 
   function handleExperienceChange(e) {
     e.preventDefault();
-    setExperience({ ...experience, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === "responsibilities") {
+      setExperience({ ...experience, [name]: value.split("\n") });
+    } else {
+      setExperience({ ...experience, [name]: value });
+    }
   }
 
   return (
