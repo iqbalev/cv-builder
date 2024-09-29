@@ -11,3 +11,7 @@ body {
 img {
   display: block;
 }
+
+li {
+  list-style: inside;
+}
