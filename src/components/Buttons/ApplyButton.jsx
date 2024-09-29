@@ -1,9 +1,9 @@
 import "../../styles/Buttons.css";
 
-function ApplyButton({ handleApply }) {
+function ApplyButton() {
   return (
     <>
-      <button className="apply-button" type="submit" onClick={handleApply}>
+      <button className="apply-button" type="submit">
         Apply
       </button>
     </>
