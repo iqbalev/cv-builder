@@ -3,7 +3,7 @@ import "../../styles/Buttons.css";
 function EditButton({ handleEdit }) {
   return (
     <>
-      <button className="edit-button" type="submit" onClick={handleEdit}>
+      <button className="edit-button" type="button" onClick={handleEdit}>
         Edit
       </button>
     </>
