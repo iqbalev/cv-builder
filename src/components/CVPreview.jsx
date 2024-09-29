@@ -44,7 +44,7 @@ function CVPreview({ personalDetails, education, experience }) {
 
       <section className="education-preview-container">
         <h2 className="education-preview-title">Education</h2>
-        <div className="education-details">
+        <div className="education-preview-details">
           <div className="field-university-degree">
             <p>{education.fieldOfStudy}</p>
             <div className="university-degree">
@@ -68,19 +68,27 @@ function CVPreview({ personalDetails, education, experience }) {
 
       <section className="experience-preview-container">
         <h2 className="experience-preview-title">Experience</h2>
-        <div className="experience-details">
-          <div className="company-position">
-            <p>{experience.positionTitle}</p>
-            <p>{experience.companyName}</p>
+        <div className="experience-preview-details">
+          <div className="company-position-start-end">
+            <div className="company-position">
+              <p>{experience.positionTitle}</p>
+              <p>{experience.companyName}</p>
+            </div>
+
+            <div className="start-end">
+              {experience.startDate && (
+                <p>
+                  {experience.startDate}-{experience.endDate}
+                </p>
+              )}
+            </div>
           </div>
 
-          <div className="start-end">
-            {experience.startDate && (
-              <p>
-                {experience.startDate}-{experience.endDate}
-              </p>
-            )}
-          </div>
+          <ul className="responsibilities">
+            {experience.responsibilities.map((responsibility) => (
+              <li>{responsibility}</li>
+            ))}
+          </ul>
         </div>
       </section>
     </>
