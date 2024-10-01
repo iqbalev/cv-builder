@@ -1,11 +1,14 @@
 import "../../styles/Buttons.css";
-import ChevronDownIcon from "../../assets/ChevronDownIcon.svg";
-import ChevronUpIcon from "../../assets/ChevronUpIcon.svg";
+import ChevronIcon from "../../assets/ChevronIcon.svg";
 
-function ToggleButton({ handleToggle, isOpen }) {
+function ToggleButton({ isOpen, onToggle }) {
   return (
-    <button className="toggle-button" onClick={handleToggle}>
-      <img src={isOpen ? ChevronDownIcon : ChevronUpIcon} alt="Chevron Icon" />
+    <button className="toggle-button" onClick={onToggle}>
+      <img
+        className={isOpen ? "chevron-icon rotate" : "chevron-icon"}
+        src={ChevronIcon}
+        alt="Chevron Icon"
+      />
     </button>
   );
 }
