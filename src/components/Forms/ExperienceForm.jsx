@@ -4,32 +4,33 @@ import ApplyButton from "../Buttons/ApplyButton.jsx";
 import EditButton from "../Buttons/EditButton.jsx";
 import ToggleButton from "../Buttons/ToggleButton.jsx";
 
-function ExperienceForm({ experience, handleChange, handleEdit }) {
+function ExperienceForm({ experience, onChange, onApply }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isEditable, setIsEditable] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   function handleToggle() {
     setIsOpen(!isOpen);
   }
 
   function handleEdit() {
-    setIsEditable(true);
+    setIsEditing(true);
   }
 
   function handleApply(e) {
     e.preventDefault();
-    setIsEditable(false);
+    onApply();
+    setIsEditing(false);
   }
 
   return (
     <section className="experience-form-container">
       <div className="experience-form-title-toggle">
         <h2 className="experience-form-title">Experience</h2>
-        <ToggleButton handleToggle={handleToggle} isOpen={isOpen} />
+        <ToggleButton onToggle={handleToggle} isOpen={isOpen} />
       </div>
       {isOpen && (
         <>
-          {isEditable ? (
+          {isEditing ? (
             <form className="experience-form-details" onSubmit={handleApply}>
               <label className="position-title-label">
                 Position Title
@@ -39,7 +40,7 @@ function ExperienceForm({ experience, handleChange, handleEdit }) {
                   name="positionTitle"
                   placeholder="Frontend Web Developer"
                   value={experience.positionTitle}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -51,7 +52,7 @@ function ExperienceForm({ experience, handleChange, handleEdit }) {
                   name="companyName"
                   placeholder="Google"
                   value={experience.companyName}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -61,7 +62,7 @@ function ExperienceForm({ experience, handleChange, handleEdit }) {
                   className="responsibilities-textarea"
                   name="responsibilities"
                   value={experience.responsibilities.join("\n")}
-                  onChange={handleChange}
+                  onChange={onChange}
                 ></textarea>
               </label>
 
@@ -72,7 +73,7 @@ function ExperienceForm({ experience, handleChange, handleEdit }) {
                   type="date"
                   name="startDate"
                   value={experience.startDate}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -83,7 +84,7 @@ function ExperienceForm({ experience, handleChange, handleEdit }) {
                   type="date"
                   name="endDate"
                   value={experience.endDate}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -113,8 +114,8 @@ function ExperienceForm({ experience, handleChange, handleEdit }) {
                 <h4 className="responsibilities-overview-title">
                   Responsibilities
                 </h4>
-                {experience.responsibilities.map((responsibility) => (
-                  <li className="responsibilities-overview">
+                {experience.responsibilities.map((responsibility, index) => (
+                  <li className="responsibilities-overview" key={index}>
                     {responsibility}
                   </li>
                 ))}
@@ -131,7 +132,7 @@ function ExperienceForm({ experience, handleChange, handleEdit }) {
               </div>
 
               <div className="experience-form-buttons">
-                <EditButton handleEdit={handleEdit} />
+                <EditButton onEdit={handleEdit} />
               </div>
             </div>
           )}

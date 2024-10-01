@@ -4,32 +4,33 @@ import ApplyButton from "../Buttons/ApplyButton.jsx";
 import EditButton from "../Buttons/EditButton.jsx";
 import ToggleButton from "../Buttons/ToggleButton.jsx";
 
-function PersonalDetailsForm({ personalDetails, handleChange }) {
+function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
   const [isOpen, setIsOpen] = useState(true);
-  const [isEditable, setIsEditable] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   function handleToggle() {
     setIsOpen(!isOpen);
   }
 
   function handleEdit() {
-    setIsEditable(true);
+    setIsEditing(true);
   }
 
   function handleApply(e) {
     e.preventDefault();
-    setIsEditable(false);
+    onApply();
+    setIsEditing(false);
   }
 
   return (
     <section className="personal-details-form-container">
       <div className="personal-details-form-title-toggle">
         <h2 className="personal-details-form-title">Personal Details</h2>
-        <ToggleButton handleToggle={handleToggle} isOpen={isOpen} />
+        <ToggleButton onToggle={handleToggle} isOpen={isOpen} />
       </div>
       {isOpen && (
         <>
-          {isEditable ? (
+          {isEditing ? (
             <form
               className="personal-details-form-details"
               onSubmit={handleApply}
@@ -42,7 +43,7 @@ function PersonalDetailsForm({ personalDetails, handleChange }) {
                   name="fullName"
                   placeholder="John Doe"
                   value={personalDetails.fullName}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -54,7 +55,7 @@ function PersonalDetailsForm({ personalDetails, handleChange }) {
                   name="appliedPosition"
                   placeholder="Fullstack Web Developer"
                   value={personalDetails.appliedPosition}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -66,7 +67,7 @@ function PersonalDetailsForm({ personalDetails, handleChange }) {
                   name="phoneNumber"
                   placeholder="5551234567"
                   value={personalDetails.phoneNumber}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -78,7 +79,7 @@ function PersonalDetailsForm({ personalDetails, handleChange }) {
                   name="email"
                   placeholder="johndoe@gmail.com"
                   value={personalDetails.email}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -90,7 +91,7 @@ function PersonalDetailsForm({ personalDetails, handleChange }) {
                   name="address"
                   placeholder="New York, US"
                   value={personalDetails.address}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -123,7 +124,7 @@ function PersonalDetailsForm({ personalDetails, handleChange }) {
               </div>
 
               <div className="personal-details-form-buttons">
-                <EditButton handleEdit={handleEdit} />
+                <EditButton onEdit={handleEdit} />
               </div>
             </div>
           )}

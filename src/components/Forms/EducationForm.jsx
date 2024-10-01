@@ -4,32 +4,33 @@ import ApplyButton from "../Buttons/ApplyButton.jsx";
 import EditButton from "../Buttons/EditButton.jsx";
 import ToggleButton from "../Buttons/ToggleButton.jsx";
 
-function EducationForm({ education, handleChange, handleEdit }) {
+function EducationForm({ education, onChange, onApply }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isEditable, setIsEditable] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   function handleToggle() {
     setIsOpen(!isOpen);
   }
 
   function handleEdit() {
-    setIsEditable(true);
+    setIsEditing(true);
   }
 
   function handleApply(e) {
     e.preventDefault();
-    setIsEditable(false);
+    onApply();
+    setIsEditing(false);
   }
 
   return (
     <section className="education-form-container">
       <div className="education-form-title-toggle">
         <h2 className="education-form-title">Education</h2>
-        <ToggleButton handleToggle={handleToggle} isOpen={isOpen} />
+        <ToggleButton onToggle={handleToggle} isOpen={isOpen} />
       </div>
       {isOpen && (
         <>
-          {isEditable ? (
+          {isEditing ? (
             <form className="education-form-details" onSubmit={handleApply}>
               <label className="field-of-study-label">
                 Field of Study
@@ -39,7 +40,7 @@ function EducationForm({ education, handleChange, handleEdit }) {
                   name="fieldOfStudy"
                   placeholder="Computer Science"
                   value={education.fieldOfStudy}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -51,7 +52,7 @@ function EducationForm({ education, handleChange, handleEdit }) {
                   name="universityName"
                   placeholder="Massachusetts Institute of Technology"
                   value={education.universityName}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -63,7 +64,7 @@ function EducationForm({ education, handleChange, handleEdit }) {
                   name="degreeTitle"
                   placeholder="BSc in Computer Science and Engineering"
                   value={education.degreeTitle}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -74,7 +75,7 @@ function EducationForm({ education, handleChange, handleEdit }) {
                   type="date"
                   name="startDate"
                   value={education.startDate}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -85,7 +86,7 @@ function EducationForm({ education, handleChange, handleEdit }) {
                   type="date"
                   name="endDate"
                   value={education.endDate}
-                  onChange={handleChange}
+                  onChange={onChange}
                 />
               </label>
 
@@ -129,7 +130,7 @@ function EducationForm({ education, handleChange, handleEdit }) {
               </div>
 
               <div className="education-form-buttons">
-                <EditButton handleEdit={handleEdit} />
+                <EditButton onEdit={handleEdit} />
               </div>
             </div>
           )}
