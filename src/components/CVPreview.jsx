@@ -85,8 +85,8 @@ function CVPreview({ personalDetails, education, experience }) {
           </div>
 
           <ul className="responsibilities">
-            {experience.responsibilities.map((responsibility) => (
-              <li>{responsibility}</li>
+            {experience.responsibilities.map((responsibility, index) => (
+              <li key={index}>{responsibility}</li>
             ))}
           </ul>
         </div>
@@ -94,4 +94,5 @@ function CVPreview({ personalDetails, education, experience }) {
     </>
   );
 }
+
 export default CVPreview;
