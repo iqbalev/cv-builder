@@ -14,6 +14,9 @@ function App() {
     address: "New York, US",
   });
 
+  const [tempPersonalDetails, setTempPersonalDetails] =
+    useState(personalDetails);
+
   const [education, setEducation] = useState({
     fieldOfStudy: "Computer Science",
     universityName: "Massachusetts Institute of Technology",
@@ -21,6 +24,8 @@ function App() {
     startDate: "2018/01/01",
     endDate: "2022/01/01",
   });
+
+  const [tempEducation, setTempEducation] = useState(education);
 
   const [experience, setExperience] = useState({
     positionTitle: "Frontend Web Developer",
@@ -34,41 +39,42 @@ function App() {
     endDate: "Present",
   });
 
-  function handlePersonalDetailsChange(e) {
-    e.preventDefault();
-    setPersonalDetails({ ...personalDetails, [e.target.name]: e.target.value });
-  }
+  const [tempExperience, setTempExperience] = useState(experience);
 
-  function handleEducationChange(e) {
-    e.preventDefault();
-    setEducation({ ...education, [e.target.name]: e.target.value });
-  }
-
-  function handleExperienceChange(e) {
+  function handleTempStatesChange(e, setState) {
     e.preventDefault();
     const { name, value } = e.target;
 
     if (name === "responsibilities") {
-      setExperience({ ...experience, [name]: value.split("\n") });
+      setState((prev) => ({ ...prev, [name]: value.split("\n") }));
     } else {
-      setExperience({ ...experience, [name]: value });
+      setState((prev) => ({ ...prev, [name]: value }));
     }
+  }
+
+  function handleStatesApply(setState, state) {
+    setState(state);
   }
 
   return (
     <main className="app-container">
       <div className="form-container">
         <PersonalDetailsForm
-          personalDetails={personalDetails}
-          handleChange={handlePersonalDetailsChange}
+          personalDetails={tempPersonalDetails}
+          onChange={(e) => handleTempStatesChange(e, setTempPersonalDetails)}
+          onApply={() =>
+            handleStatesApply(setPersonalDetails, tempPersonalDetails)
+          }
         />
         <EducationForm
-          education={education}
-          handleChange={handleEducationChange}
+          education={tempEducation}
+          onChange={(e) => handleTempStatesChange(e, setTempEducation)}
+          onApply={() => handleStatesApply(setEducation, tempEducation)}
         />
         <ExperienceForm
-          experience={experience}
-          handleChange={handleExperienceChange}
+          experience={tempExperience}
+          onChange={(e) => handleTempStatesChange(e, setTempExperience)}
+          onApply={() => handleStatesApply(setExperience, tempExperience)}
         />
       </div>
 
@@ -82,4 +88,5 @@ function App() {
     </main>
   );
 }
+
 export default App;
