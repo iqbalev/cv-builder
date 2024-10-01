@@ -1,9 +1,9 @@
 import "../../styles/Buttons.css";
 
-function EditButton({ handleEdit }) {
+function EditButton({ onEdit }) {
   return (
     <>
-      <button className="edit-button" type="button" onClick={handleEdit}>
+      <button className="edit-button" type="button" onClick={onEdit}>
         Edit
       </button>
     </>
