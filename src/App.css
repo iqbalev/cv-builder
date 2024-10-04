@@ -1,7 +1,10 @@
 .app-container {
-  display: flex;
+  display: grid;
   padding: 20px;
-  justify-content: space-evenly;
+  margin: 20px;
+  gap: 20px;
+  grid-template-columns: 1.8fr 2.8fr;
+  line-height: 1.5;
 }
 
 .form-container,
@@ -10,13 +13,5 @@
   flex-direction: column;
   padding: 10px;
   gap: 10px;
-  border: 1px solid rgb(0, 0, 0);
-}
-
-.form-container {
-  width: 400px;
-}
-
-.cv-preview-container {
-  width: 793px;
+  border: 1px solid #000000;
 }

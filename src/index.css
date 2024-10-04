@@ -8,10 +8,15 @@ body {
   font-family: monospace;
 }
 
-img {
-  display: block;
+button,
+input {
+  font-family: inherit;
 }
 
 li {
   list-style: inside;
+}
+
+img {
+  display: block;
 }

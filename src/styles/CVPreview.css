@@ -17,7 +17,7 @@
 .education-preview-title,
 .experience-preview-title {
   text-transform: uppercase;
-  border-bottom: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid #000000;
 }
 
 .phone-email-address {
@@ -34,7 +34,7 @@
 .email,
 .address {
   display: flex;
-  gap: 5px;
+  gap: 4px;
   align-items: center;
 }
 
@@ -57,7 +57,7 @@
   gap: 20px;
 }
 
-.company-position-start-end {
+.title-company-start-end {
   display: flex;
   justify-content: space-between;
 }
