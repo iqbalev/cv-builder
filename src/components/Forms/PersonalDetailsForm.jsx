@@ -47,14 +47,14 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
                 />
               </label>
 
-              <label className="applied-position-label">
-                Applied Position
+              <label className="job-title-label">
+                Job Title
                 <input
-                  className="applied-position-input"
+                  className="job-title-input"
                   type="text"
-                  name="appliedPosition"
+                  name="jobTitle"
                   placeholder="Fullstack Web Developer"
-                  value={personalDetails.appliedPosition}
+                  value={personalDetails.jobTitle}
                   onChange={onChange}
                 />
               </label>
@@ -102,8 +102,13 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
           ) : (
             <div className="personal-details-form-overview">
               <div className="full-name-overview-container">
-                <h4 className="ful-name-overview-title">Full Name</h4>
+                <h4 className="full-name-overview-title">Full Name</h4>
                 <p className="full-name-overview">{personalDetails.fullName}</p>
+              </div>
+
+              <div className="job-title-overview-container">
+                <h4 className="job-title-overview-title">Job Title</h4>
+                <p className="job-title-overview">{personalDetails.jobTitle}</p>
               </div>
 
               <div className="phone-number-overview-container">

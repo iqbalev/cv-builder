@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../styles/Forms.css";
+import formatDate from "../../utils/formatDate.js";
 import ApplyButton from "../Buttons/ApplyButton.jsx";
 import EditButton from "../Buttons/EditButton.jsx";
 import ToggleButton from "../Buttons/ToggleButton.jsx";
@@ -32,29 +33,76 @@ function ExperienceForm({ experience, onChange, onApply }) {
         <>
           {isEditing ? (
             <form className="experience-form-details" onSubmit={handleApply}>
-              <label className="position-title-label">
-                Position Title
+              <label className="job-title-label">
+                Job Title
                 <input
-                  className="position-title-input"
+                  className="job-title-input"
                   type="text"
-                  name="positionTitle"
+                  name="jobTitle"
                   placeholder="Frontend Web Developer"
-                  value={experience.positionTitle}
+                  value={experience.jobTitle}
                   onChange={onChange}
                 />
               </label>
 
-              <label className="company-name-label">
-                Company Name
+              <label className="company-label">
+                Company
                 <input
-                  className="company-name-input"
+                  className="company-input"
                   type="text"
-                  name="companyName"
+                  name="company"
                   placeholder="Google"
-                  value={experience.companyName}
+                  value={experience.company}
                   onChange={onChange}
                 />
               </label>
+
+              <label className="start-date-label">
+                Start Date
+                <input
+                  className="start-date-input"
+                  type="month"
+                  name="startDate"
+                  value={experience.startDate}
+                  placeholder="2023-03"
+                  onChange={onChange}
+                />
+              </label>
+
+              <div className="end-active">
+                <label className="end-date-label" htmlFor="end-date">
+                  End Date
+                </label>
+
+                <div className="is-currently-active-label-input">
+                  <label
+                    className="is-currently-active-label"
+                    htmlFor="is-currently-active"
+                  >
+                    Currently Active
+                  </label>
+
+                  <input
+                    id="is-currently-active"
+                    className="is-currently-active-input"
+                    type="checkbox"
+                    name="isCurrentlyActive"
+                    checked={experience.isCurrentlyActive}
+                    onChange={onChange}
+                  />
+                </div>
+
+                <input
+                  id="end-date"
+                  className="end-date-input"
+                  type="month"
+                  name="endDate"
+                  value={experience.endDate}
+                  placeholder="2022-10"
+                  onChange={onChange}
+                  disabled={experience.isCurrentlyActive}
+                />
+              </div>
 
               <label className="responsibilities-label">
                 Responsibilities
@@ -66,47 +114,35 @@ function ExperienceForm({ experience, onChange, onApply }) {
                 ></textarea>
               </label>
 
-              <label className="start-date-label">
-                Start Date
-                <input
-                  className="start-date-input"
-                  type="date"
-                  name="startDate"
-                  value={experience.startDate}
-                  onChange={onChange}
-                />
-              </label>
-
-              <label className="end-date-label">
-                End Date
-                <input
-                  className="end-date-input"
-                  type="date"
-                  name="endDate"
-                  value={experience.endDate}
-                  onChange={onChange}
-                />
-              </label>
-
               <div className="experience-form-buttons">
                 <ApplyButton />
               </div>
             </form>
           ) : (
             <div className="experience-form-overview">
-              <div className="position-title-overview-container">
-                <h4 className="position-title-overview-title">
-                  Position Title
-                </h4>
-                <p className="position-title-overview">
-                  {experience.positionTitle}
+              <div className="job-title-overview-container">
+                <h4 className="job-title-overview-title">Job Title</h4>
+                <p className="job-title-overview">{experience.jobTitle}</p>
+              </div>
+
+              <div className="company-overview-container">
+                <h4 className="company-overview-title">Company</h4>
+                <p className="company-overview">{experience.company}</p>
+              </div>
+
+              <div className="start-date-overview-container">
+                <h4 className="start-date-overview-title">Start Date</h4>
+                <p className="start-date-overview">
+                  {formatDate(experience.startDate)}
                 </p>
               </div>
 
-              <div className="company-name-overview-container">
-                <h4 className="company-name-overview-title">Company Name</h4>
-                <p className="company-name-overview">
-                  {experience.companyName}
+              <div className="end-date-overview-container">
+                <h4 className="end-date-overview-title">End Date</h4>
+                <p className="end-date-overview">
+                  {experience.isCurrentlyActive
+                    ? "Present"
+                    : formatDate(experience.endDate)}
                 </p>
               </div>
 
@@ -120,16 +156,6 @@ function ExperienceForm({ experience, onChange, onApply }) {
                   </li>
                 ))}
               </ul>
-
-              <div className="start-date-overview-container">
-                <h4 className="start-date-overview-title">Start Date</h4>
-                <p className="start-date-overview">{experience.startDate}</p>
-              </div>
-
-              <div className="end-date-overview-container">
-                <h4 className="end-date-overview-title">End Date</h4>
-                <p className="end-date-overview">{experience.endDate}</p>
-              </div>
 
               <div className="experience-form-buttons">
                 <EditButton onEdit={handleEdit} />

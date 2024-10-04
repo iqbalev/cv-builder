@@ -2,14 +2,15 @@ import "../styles/CVPreview.css";
 import AddressIcon from "../assets/AddressIcon.svg";
 import EmailIcon from "../assets/EmailIcon.svg";
 import TelephoneIcon from "../assets/TelephoneIcon.svg";
+import formatDate from "../utils/formatDate";
 
 function CVPreview({ personalDetails, education, experience }) {
   return (
     <>
       <section className="personal-details-preview-container">
-        <div className="name-position">
+        <div className="name-title">
           <p>{personalDetails.fullName}</p>
-          <p>{personalDetails.appliedPosition}</p>
+          <p>{personalDetails.jobTitle}</p>
         </div>
 
         <div className="phone-email-address">
@@ -48,9 +49,9 @@ function CVPreview({ personalDetails, education, experience }) {
           <div className="field-university-degree">
             <p>{education.fieldOfStudy}</p>
             <div className="university-degree">
-              {education.universityName && (
+              {education.university && (
                 <p>
-                  {education.universityName}, {education.degreeTitle}
+                  {education.university}, {education.degree}
                 </p>
               )}
             </div>
@@ -59,7 +60,10 @@ function CVPreview({ personalDetails, education, experience }) {
           <div className="start-end">
             {education.startDate && (
               <p>
-                {education.startDate}-{education.endDate}
+                {formatDate(education.startDate)}-
+                {education.isCurrentlyActive
+                  ? "Present"
+                  : formatDate(education.endDate)}
               </p>
             )}
           </div>
@@ -69,16 +73,19 @@ function CVPreview({ personalDetails, education, experience }) {
       <section className="experience-preview-container">
         <h2 className="experience-preview-title">Experience</h2>
         <div className="experience-preview-details">
-          <div className="company-position-start-end">
-            <div className="company-position">
-              <p>{experience.positionTitle}</p>
-              <p>{experience.companyName}</p>
+          <div className="title-company-start-end">
+            <div className="title-company">
+              <p>{experience.company}</p>
+              <p>{experience.jobTitle}</p>
             </div>
 
             <div className="start-end">
               {experience.startDate && (
                 <p>
-                  {experience.startDate}-{experience.endDate}
+                  {formatDate(experience.startDate)}-
+                  {experience.isCurrentlyActive
+                    ? "Present"
+                    : formatDate(experience.endDate)}
                 </p>
               )}
             </div>
