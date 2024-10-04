@@ -8,7 +8,7 @@ import PersonalDetailsForm from "./components/Forms/PersonalDetailsForm";
 function App() {
   const [personalDetails, setPersonalDetails] = useState({
     fullName: "John Doe",
-    appliedPosition: "Fullstack Web Developer",
+    jobTitle: "Fullstack Web Developer",
     phoneNumber: "5551234567",
     email: "johndoe@gmail.com",
     address: "New York, US",
@@ -19,33 +19,36 @@ function App() {
 
   const [education, setEducation] = useState({
     fieldOfStudy: "Computer Science",
-    universityName: "Massachusetts Institute of Technology",
-    degreeTitle: "BSc in Computer Science and Engineering",
-    startDate: "2018/01/01",
-    endDate: "2022/01/01",
+    university: "Oxford University",
+    degree: "BSc in Computer Science and Engineering",
+    startDate: "2018-09",
+    isCurrentlyActive: false,
+    endDate: "2022-10",
   });
 
   const [tempEducation, setTempEducation] = useState(education);
 
   const [experience, setExperience] = useState({
-    positionTitle: "Frontend Web Developer",
-    companyName: "Google",
+    jobTitle: "Frontend Web Developer",
+    company: "Google",
+    startDate: "2023-03",
+    isCurrentlyActive: false,
+    endDate: "2024-01",
     responsibilities: [
       "Implementing UI/UX designs provided by the design team",
       "Consuming and rendering APIs from the backend",
       "Creating a responsive and interactive website",
     ],
-    startDate: "2022/02/02",
-    endDate: "Present",
   });
 
   const [tempExperience, setTempExperience] = useState(experience);
 
   function handleTempStatesChange(e, setState) {
-    e.preventDefault();
-    const { name, value } = e.target;
+    const { name, value, checked } = e.target;
 
-    if (name === "responsibilities") {
+    if (name === "isCurrentlyActive") {
+      setState((prev) => ({ ...prev, [name]: checked }));
+    } else if (name === "responsibilities") {
       setState((prev) => ({ ...prev, [name]: value.split("\n") }));
     } else {
       setState((prev) => ({ ...prev, [name]: value }));
