@@ -4,7 +4,7 @@ import ApplyButton from "../Buttons/ApplyButton.jsx";
 import EditButton from "../Buttons/EditButton.jsx";
 import ToggleButton from "../Buttons/ToggleButton.jsx";
 
-function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
+function PersonalDetailsSection({ personalDetails, onChange, onApply }) {
   const [isOpen, setIsOpen] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -23,22 +23,19 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
   }
 
   return (
-    <section className="personal-details-form-container">
-      <div className="personal-details-form-title-toggle">
-        <h2 className="personal-details-form-title">Personal Details</h2>
+    <section className={styles.personalDetailsContainer}>
+      <div className={styles.headingToggle}>
+        <h2 className={styles.heading}>Personal Details</h2>
         <ToggleButton onToggle={handleToggle} isOpen={isOpen} />
       </div>
       {isOpen && (
         <>
           {isEditing ? (
-            <form
-              className="personal-details-form-details"
-              onSubmit={handleApply}
-            >
-              <label className="full-name-label">
+            <form className={styles.form} onSubmit={handleApply}>
+              <label className={styles.label}>
                 Full Name
                 <input
-                  className="full-name-input"
+                  className={styles.input}
                   type="text"
                   name="fullName"
                   placeholder="John Doe"
@@ -47,10 +44,10 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
                 />
               </label>
 
-              <label className="job-title-label">
+              <label className={styles.label}>
                 Job Title
                 <input
-                  className="job-title-input"
+                  className={styles.input}
                   type="text"
                   name="jobTitle"
                   placeholder="Fullstack Web Developer"
@@ -59,10 +56,10 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
                 />
               </label>
 
-              <label className="phone-number-label">
+              <label className={styles.label}>
                 Phone Number
                 <input
-                  className="phone-number-input"
+                  className={styles.input}
                   type="tel"
                   name="phoneNumber"
                   placeholder="5551234567"
@@ -71,10 +68,10 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
                 />
               </label>
 
-              <label className="email-label">
+              <label className={styles.label}>
                 Email
                 <input
-                  className="email-input"
+                  className={styles.input}
                   type="email"
                   name="email"
                   placeholder="johndoe@gmail.com"
@@ -83,10 +80,10 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
                 />
               </label>
 
-              <label className="address-label">
+              <label className={styles.label}>
                 Address
                 <input
-                  className="address-input"
+                  className={styles.input}
                   type="text"
                   name="address"
                   placeholder="New York, US"
@@ -95,40 +92,38 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
                 />
               </label>
 
-              <div className="personal-details-form-buttons">
+              <div className={styles.button}>
                 <ApplyButton />
               </div>
             </form>
           ) : (
-            <div className="personal-details-form-overview">
-              <div className="full-name-overview-container">
-                <h4 className="full-name-overview-title">Full Name</h4>
-                <p className="full-name-overview">{personalDetails.fullName}</p>
+            <div className={styles.overview}>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Full Name</h4>
+                <p className={styles.text}>{personalDetails.fullName}</p>
               </div>
 
-              <div className="job-title-overview-container">
-                <h4 className="job-title-overview-title">Job Title</h4>
-                <p className="job-title-overview">{personalDetails.jobTitle}</p>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Job Title</h4>
+                <p className={styles.text}>{personalDetails.jobTitle}</p>
               </div>
 
-              <div className="phone-number-overview-container">
-                <h4 className="phone-number-overview-title">Phone Number</h4>
-                <p className="phone-number-overview">
-                  {personalDetails.phoneNumber}
-                </p>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Phone Number</h4>
+                <p className={styles.text}>{personalDetails.phoneNumber}</p>
               </div>
 
-              <div className="email-overview-container">
-                <h4 className="email-overview-title">Email</h4>
-                <p className="email-overview">{personalDetails.email}</p>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Email</h4>
+                <p className={styles.text}>{personalDetails.email}</p>
               </div>
 
-              <div className="address-overview-container">
-                <h4 className="address-overview-title">Address</h4>
-                <p className="address-overview">{personalDetails.address}</p>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Address</h4>
+                <p className={styles.text}>{personalDetails.address}</p>
               </div>
 
-              <div className="personal-details-form-buttons">
+              <div className={styles.button}>
                 <EditButton onEdit={handleEdit} />
               </div>
             </div>
@@ -139,4 +134,4 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
   );
 }
 
-export default PersonalDetailsForm;
+export default PersonalDetailsSection;
