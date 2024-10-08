@@ -1,0 +1,65 @@
+/* Grouping */
+.personalDetailsContainer,
+.educationContainer,
+.experienceContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.educationHeading,
+.experienceHeading {
+  text-transform: uppercase;
+  border-bottom: 1px solid #000000;
+}
+
+/* Personal Details */
+.personalDetailsContainer {
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone,
+.email,
+.address {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.phoneIcon,
+.emailIcon,
+.addressIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Education */
+.educationDetails {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fieldUniversityDegree {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Experience*/
+.experienceDetails {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.titleCompanyStartEnd {
+  display: flex;
+  justify-content: space-between;
+}

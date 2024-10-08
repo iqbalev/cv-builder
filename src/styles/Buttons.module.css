@@ -1,29 +1,29 @@
-.toggle-button,
-.edit-button,
-.apply-button {
+.toggleButton,
+.editButton,
+.applyButton {
   cursor: pointer;
   border-radius: 4px;
   border: transparent;
   font-weight: bold;
 }
 
-.edit-button,
-.apply-button {
+.editButton,
+.applyButton {
   padding: 8px;
   flex: 1;
   margin-top: 20px;
 }
 
-.toggle-button {
+.toggleButton {
   padding: 4px;
 }
 
-.toggle-button .chevron-icon {
+.chevronIcon {
   width: 16px;
   height: 16px;
   transition: transform 0.3s ease;
 }
 
-.toggle-button .chevron-icon.rotate {
+.chevronIcon.rotate {
   transform: rotate(-180deg);
 }

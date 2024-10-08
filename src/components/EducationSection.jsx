@@ -1,11 +1,9 @@
 import { useState } from "react";
-import "../../styles/Forms.css";
-import formatDate from "../../utils/formatDate.js";
-import ApplyButton from "../Buttons/ApplyButton.jsx";
-import EditButton from "../Buttons/EditButton.jsx";
-import ToggleButton from "../Buttons/ToggleButton.jsx";
+import styles from "../styles/EducationSection.module.css";
+import formatDate from "../utils/formatDate.js";
+import { ApplyButton, EditButton, ToggleButton } from "./Buttons.jsx";
 
-function EducationForm({ education, onChange, onApply }) {
+function EducationSection({ education, onChange, onApply }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -24,19 +22,19 @@ function EducationForm({ education, onChange, onApply }) {
   }
 
   return (
-    <section className="education-form-container">
-      <div className="education-form-title-toggle">
-        <h2 className="education-form-title">Education</h2>
+    <section className={styles.educationContainer}>
+      <div className={styles.headingToggle}>
+        <h2 className={styles.heading}>Education</h2>
         <ToggleButton onToggle={handleToggle} isOpen={isOpen} />
       </div>
       {isOpen && (
         <>
           {isEditing ? (
-            <form className="education-form-details" onSubmit={handleApply}>
-              <label className="field-of-study-label">
+            <form className={styles.form} onSubmit={handleApply}>
+              <label className={styles.label}>
                 Field of Study
                 <input
-                  className="field-of-study-input"
+                  className={styles.input}
                   type="text"
                   name="fieldOfStudy"
                   placeholder="Computer Science"
@@ -45,10 +43,10 @@ function EducationForm({ education, onChange, onApply }) {
                 />
               </label>
 
-              <label className="university-label">
+              <label className={styles.label}>
                 University
                 <input
-                  className="university-input"
+                  className={styles.input}
                   type="text"
                   name="university"
                   placeholder="Oxford University"
@@ -57,10 +55,10 @@ function EducationForm({ education, onChange, onApply }) {
                 />
               </label>
 
-              <label className="degree-label">
+              <label className={styles.label}>
                 Degree
                 <input
-                  className="degree-input"
+                  className={styles.input}
                   type="text"
                   name="degree"
                   placeholder="BSc in Computer Science and Engineering"
@@ -69,10 +67,10 @@ function EducationForm({ education, onChange, onApply }) {
                 />
               </label>
 
-              <label className="start-date-label">
+              <label className={styles.label}>
                 Start Date
                 <input
-                  className="start-date-input"
+                  className={styles.input}
                   type="month"
                   name="startDate"
                   value={education.startDate}
@@ -81,22 +79,22 @@ function EducationForm({ education, onChange, onApply }) {
                 />
               </label>
 
-              <div className="end-active">
-                <label className="end-date-label" htmlFor="end-date">
+              <div className={styles.endActive}>
+                <label className={styles.label} htmlFor="education-end-date">
                   End Date
                 </label>
 
-                <div className="is-currently-active-label-input">
+                <div className={styles.isCurrentlyActive}>
                   <label
-                    className="is-currently-active-label"
-                    htmlFor="is-currently-active"
+                    className={`${styles.label} ${styles.isCurrentlyActive}`}
+                    htmlFor="education-is-currently-active"
                   >
                     Currently Active
                   </label>
 
                   <input
-                    id="is-currently-active"
-                    className="is-currently-active-input"
+                    id="education-is-currently-active"
+                    className={`${styles.input} ${styles.isCurrentlyActive}`}
                     type="checkbox"
                     name="isCurrentlyActive"
                     checked={education.isCurrentlyActive}
@@ -105,8 +103,8 @@ function EducationForm({ education, onChange, onApply }) {
                 </div>
 
                 <input
-                  id="end-date"
-                  className="end-date-input"
+                  id="education-end-date"
+                  className={styles.input}
                   type="month"
                   name="endDate"
                   value={education.endDate}
@@ -116,48 +114,42 @@ function EducationForm({ education, onChange, onApply }) {
                 />
               </div>
 
-              <div className="education-form-buttons">
+              <div className={styles.button}>
                 <ApplyButton />
               </div>
             </form>
           ) : (
-            <div className="education-form-overview">
-              <div className="field-of-study-overview-container">
-                <h4 className="field-of-study-overview-title">
-                  Field of Study
-                </h4>
-                <p className="field-of-study-overview">
-                  {education.fieldOfStudy}
-                </p>
+            <div className={styles.overview}>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Field of Study</h4>
+                <p className={styles.text}>{education.fieldOfStudy}</p>
               </div>
 
-              <div className="university-overview-container">
-                <h4 className="university-overview-title">University</h4>
-                <p className="university-overview">{education.university}</p>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>University</h4>
+                <p className={styles.text}>{education.university}</p>
               </div>
 
-              <div className="degree-overview-container">
-                <h4 className="degree-overview-title">Degree</h4>
-                <p className="degree-overview">{education.degree}</p>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Degree</h4>
+                <p className={styles.text}>{education.degree}</p>
               </div>
 
-              <div className="start-date-overview-container">
-                <h4 className="start-date-overview-title">Start Date</h4>
-                <p className="start-date-overview">
-                  {formatDate(education.startDate)}
-                </p>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Start Date</h4>
+                <p className={styles.text}>{formatDate(education.startDate)}</p>
               </div>
 
-              <div className="end-date-overview-container">
-                <h4 className="end-date-overview-title">End Date</h4>
-                <p className="end-date-overview">
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>End Date</h4>
+                <p className={styles.text}>
                   {education.isCurrentlyActive
                     ? "Present"
                     : formatDate(education.endDate)}
                 </p>
               </div>
 
-              <div className="education-form-buttons">
+              <div className={styles.button}>
                 <EditButton onEdit={handleEdit} />
               </div>
             </div>
@@ -168,4 +160,4 @@ function EducationForm({ education, onChange, onApply }) {
   );
 }
 
-export default EducationForm;
+export default EducationSection;

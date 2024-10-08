@@ -1,11 +1,9 @@
 import { useState } from "react";
-import "../../styles/Forms.css";
-import formatDate from "../../utils/formatDate.js";
-import ApplyButton from "../Buttons/ApplyButton.jsx";
-import EditButton from "../Buttons/EditButton.jsx";
-import ToggleButton from "../Buttons/ToggleButton.jsx";
+import styles from "../styles/ExperienceSection.module.css";
+import formatDate from "../utils/formatDate.js";
+import { ApplyButton, EditButton, ToggleButton } from "./Buttons.jsx";
 
-function ExperienceForm({ experience, onChange, onApply }) {
+function ExperienceSection({ experience, onChange, onApply }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -24,19 +22,19 @@ function ExperienceForm({ experience, onChange, onApply }) {
   }
 
   return (
-    <section className="experience-form-container">
-      <div className="experience-form-title-toggle">
-        <h2 className="experience-form-title">Experience</h2>
+    <section className={styles.experienceContainer}>
+      <div className={styles.headingToggle}>
+        <h2 className={styles.heading}>Experience</h2>
         <ToggleButton onToggle={handleToggle} isOpen={isOpen} />
       </div>
       {isOpen && (
         <>
           {isEditing ? (
-            <form className="experience-form-details" onSubmit={handleApply}>
-              <label className="job-title-label">
+            <form className={styles.form} onSubmit={handleApply}>
+              <label className={styles.label}>
                 Job Title
                 <input
-                  className="job-title-input"
+                  className={styles.input}
                   type="text"
                   name="jobTitle"
                   placeholder="Frontend Web Developer"
@@ -45,10 +43,10 @@ function ExperienceForm({ experience, onChange, onApply }) {
                 />
               </label>
 
-              <label className="company-label">
+              <label className={styles.label}>
                 Company
                 <input
-                  className="company-input"
+                  className={styles.input}
                   type="text"
                   name="company"
                   placeholder="Google"
@@ -57,10 +55,10 @@ function ExperienceForm({ experience, onChange, onApply }) {
                 />
               </label>
 
-              <label className="start-date-label">
+              <label className={styles.label}>
                 Start Date
                 <input
-                  className="start-date-input"
+                  className={styles.input}
                   type="month"
                   name="startDate"
                   value={experience.startDate}
@@ -69,22 +67,22 @@ function ExperienceForm({ experience, onChange, onApply }) {
                 />
               </label>
 
-              <div className="end-active">
-                <label className="end-date-label" htmlFor="end-date">
+              <div className={styles.endActive}>
+                <label className={styles.label} htmlFor="experience-end-date">
                   End Date
                 </label>
 
-                <div className="is-currently-active-label-input">
+                <div className={styles.isCurrentlyActive}>
                   <label
-                    className="is-currently-active-label"
-                    htmlFor="is-currently-active"
+                    className={`${styles.label} ${styles.isCurrentlyActive}`}
+                    htmlFor="experience-is-currently-active"
                   >
                     Currently Active
                   </label>
 
                   <input
-                    id="is-currently-active"
-                    className="is-currently-active-input"
+                    id="experience-is-currently-active"
+                    className={`${styles.input} ${styles.isCurrentlyActive}`}
                     type="checkbox"
                     name="isCurrentlyActive"
                     checked={experience.isCurrentlyActive}
@@ -93,8 +91,8 @@ function ExperienceForm({ experience, onChange, onApply }) {
                 </div>
 
                 <input
-                  id="end-date"
-                  className="end-date-input"
+                  id="experience-end-date"
+                  className={styles.input}
                   type="month"
                   name="endDate"
                   value={experience.endDate}
@@ -104,60 +102,58 @@ function ExperienceForm({ experience, onChange, onApply }) {
                 />
               </div>
 
-              <label className="responsibilities-label">
+              <label className={styles.label}>
                 Responsibilities
                 <textarea
-                  className="responsibilities-textarea"
+                  className={styles.textarea}
                   name="responsibilities"
                   value={experience.responsibilities.join("\n")}
                   onChange={onChange}
                 ></textarea>
               </label>
 
-              <div className="experience-form-buttons">
+              <div className={styles.button}>
                 <ApplyButton />
               </div>
             </form>
           ) : (
-            <div className="experience-form-overview">
-              <div className="job-title-overview-container">
-                <h4 className="job-title-overview-title">Job Title</h4>
-                <p className="job-title-overview">{experience.jobTitle}</p>
+            <div className={styles.overview}>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Job Title</h4>
+                <p className={styles.text}>{experience.jobTitle}</p>
               </div>
 
-              <div className="company-overview-container">
-                <h4 className="company-overview-title">Company</h4>
-                <p className="company-overview">{experience.company}</p>
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Company</h4>
+                <p className={styles.text}>{experience.company}</p>
               </div>
 
-              <div className="start-date-overview-container">
-                <h4 className="start-date-overview-title">Start Date</h4>
-                <p className="start-date-overview">
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>Start Date</h4>
+                <p className={styles.text}>
                   {formatDate(experience.startDate)}
                 </p>
               </div>
 
-              <div className="end-date-overview-container">
-                <h4 className="end-date-overview-title">End Date</h4>
-                <p className="end-date-overview">
+              <div className={styles.details}>
+                <h4 className={styles.subHeading}>End Date</h4>
+                <p className={styles.text}>
                   {experience.isCurrentlyActive
                     ? "Present"
                     : formatDate(experience.endDate)}
                 </p>
               </div>
 
-              <ul className="responsibility-overview-container">
-                <h4 className="responsibilities-overview-title">
-                  Responsibilities
-                </h4>
+              <ul className={styles.details}>
+                <h4 className={styles.subHeading}>Responsibilities</h4>
                 {experience.responsibilities.map((responsibility, index) => (
-                  <li className="responsibilities-overview" key={index}>
+                  <li className={styles.text} key={index}>
                     {responsibility}
                   </li>
                 ))}
               </ul>
 
-              <div className="experience-form-buttons">
+              <div className={styles.button}>
                 <EditButton onEdit={handleEdit} />
               </div>
             </div>
@@ -168,4 +164,4 @@ function ExperienceForm({ experience, onChange, onApply }) {
   );
 }
 
-export default ExperienceForm;
+export default ExperienceSection;

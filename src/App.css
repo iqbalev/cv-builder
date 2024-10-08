@@ -7,8 +7,8 @@
   line-height: 1.5;
 }
 
-.form-container,
-.cv-preview-container {
+.sections-container,
+.resume-preview-container {
   display: flex;
   flex-direction: column;
   padding: 10px;

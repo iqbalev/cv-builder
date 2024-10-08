@@ -1,41 +1,53 @@
-import "../styles/CVPreview.css";
+import styles from "../styles/ResumePreview.module.css";
 import AddressIcon from "../assets/AddressIcon.svg";
 import EmailIcon from "../assets/EmailIcon.svg";
-import TelephoneIcon from "../assets/TelephoneIcon.svg";
+import PhoneIcon from "../assets/PhoneIcon.svg";
 import formatDate from "../utils/formatDate";
 
-function CVPreview({ personalDetails, education, experience }) {
+function ResumePreview({ personalDetails, education, experience }) {
   return (
     <>
-      <section className="personal-details-preview-container">
-        <div className="name-title">
+      <section className={styles.personalDetailsContainer}>
+        <div className={styles.nameTitle}>
           <p>{personalDetails.fullName}</p>
           <p>{personalDetails.jobTitle}</p>
         </div>
 
-        <div className="phone-email-address">
-          <div className="phone">
+        <div className={styles.contactInfo}>
+          <div className={styles.phone}>
             {personalDetails.phoneNumber && (
               <>
-                <img src={TelephoneIcon} alt="telephone-icon" />
+                <img
+                  className={styles.phoneIcon}
+                  src={PhoneIcon}
+                  alt="Phone Icon"
+                />
                 <p>{personalDetails.phoneNumber}</p>
               </>
             )}
           </div>
 
-          <div className="email">
+          <div className={styles.email}>
             {personalDetails.email && (
               <>
-                <img src={EmailIcon} alt="email-icon" />
+                <img
+                  className={styles.emailIcon}
+                  src={EmailIcon}
+                  alt="Email Icon"
+                />
                 <p>{personalDetails.email}</p>
               </>
             )}
           </div>
 
-          <div className="address">
+          <div className={styles.address}>
             {personalDetails.address && (
               <>
-                <img src={AddressIcon} alt="address-icon" />
+                <img
+                  className={styles.addressIcon}
+                  src={AddressIcon}
+                  alt="Address Icon"
+                />
                 <p>{personalDetails.address}</p>
               </>
             )}
@@ -43,12 +55,12 @@ function CVPreview({ personalDetails, education, experience }) {
         </div>
       </section>
 
-      <section className="education-preview-container">
-        <h2 className="education-preview-title">Education</h2>
-        <div className="education-preview-details">
-          <div className="field-university-degree">
+      <section className={styles.educationContainer}>
+        <h2 className={styles.educationHeading}>Education</h2>
+        <div className={styles.educationDetails}>
+          <div className={styles.fieldUniversityDegree}>
             <p>{education.fieldOfStudy}</p>
-            <div className="university-degree">
+            <div className={styles.universityDegree}>
               {education.university && (
                 <p>
                   {education.university}, {education.degree}
@@ -57,7 +69,7 @@ function CVPreview({ personalDetails, education, experience }) {
             </div>
           </div>
 
-          <div className="start-end">
+          <div className={styles.startEnd}>
             {education.startDate && (
               <p>
                 {formatDate(education.startDate)}-
@@ -70,16 +82,16 @@ function CVPreview({ personalDetails, education, experience }) {
         </div>
       </section>
 
-      <section className="experience-preview-container">
-        <h2 className="experience-preview-title">Experience</h2>
-        <div className="experience-preview-details">
-          <div className="title-company-start-end">
-            <div className="title-company">
+      <section className={styles.experienceContainer}>
+        <h2 className={styles.experienceHeading}>Experience</h2>
+        <div className={styles.experienceDetails}>
+          <div className={styles.titleCompanyStartEnd}>
+            <div className={styles.titleCompany}>
               <p>{experience.company}</p>
               <p>{experience.jobTitle}</p>
             </div>
 
-            <div className="start-end">
+            <div className={styles.startEnd}>
               {experience.startDate && (
                 <p>
                   {formatDate(experience.startDate)}-
@@ -91,7 +103,7 @@ function CVPreview({ personalDetails, education, experience }) {
             </div>
           </div>
 
-          <ul className="responsibilities">
+          <ul className={styles.responsibilities}>
             {experience.responsibilities.map((responsibility, index) => (
               <li key={index}>{responsibility}</li>
             ))}
@@ -102,4 +114,4 @@ function CVPreview({ personalDetails, education, experience }) {
   );
 }
 
-export default CVPreview;
+export default ResumePreview;
