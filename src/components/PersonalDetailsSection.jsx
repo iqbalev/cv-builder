@@ -1,8 +1,6 @@
 import { useState } from "react";
-import "../../styles/Forms.css";
-import ApplyButton from "../Buttons/ApplyButton.jsx";
-import EditButton from "../Buttons/EditButton.jsx";
-import ToggleButton from "../Buttons/ToggleButton.jsx";
+import styles from "../styles/PersonalDetailsSection.module.css";
+import { ApplyButton, EditButton, ToggleButton } from "./Buttons.jsx";
 
 function PersonalDetailsSection({ personalDetails, onChange, onApply }) {
   const [isOpen, setIsOpen] = useState(true);
