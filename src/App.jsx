@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import CVPreview from "./components/CVPreview";
-import EducationForm from "./components/Forms/EducationForm";
-import ExperienceForm from "./components/Forms/ExperienceForm";
-import PersonalDetailsForm from "./components/Forms/PersonalDetailsForm";
+import EducationSection from "./components/EducationSection";
+import ExperienceSection from "./components/ExperienceSection";
+import PersonalDetailsSection from "./components/PersonalDetailsSection";
+import ResumePreview from "./components/ResumePreview";
 
 function App() {
   const [personalDetails, setPersonalDetails] = useState({
@@ -61,28 +61,28 @@ function App() {
 
   return (
     <main className="app-container">
-      <div className="form-container">
-        <PersonalDetailsForm
+      <div className="sections-container">
+        <PersonalDetailsSection
           personalDetails={tempPersonalDetails}
           onChange={(e) => handleTempStatesChange(e, setTempPersonalDetails)}
           onApply={() =>
             handleStatesApply(setPersonalDetails, tempPersonalDetails)
           }
         />
-        <EducationForm
+        <EducationSection
           education={tempEducation}
           onChange={(e) => handleTempStatesChange(e, setTempEducation)}
           onApply={() => handleStatesApply(setEducation, tempEducation)}
         />
-        <ExperienceForm
+        <ExperienceSection
           experience={tempExperience}
           onChange={(e) => handleTempStatesChange(e, setTempExperience)}
           onApply={() => handleStatesApply(setExperience, tempExperience)}
         />
       </div>
 
-      <div className="cv-preview-container">
-        <CVPreview
+      <div className="resume-preview-container">
+        <ResumePreview
           personalDetails={personalDetails}
           education={education}
           experience={experience}
