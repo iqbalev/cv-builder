@@ -30,3 +30,11 @@ export function ToggleButton({ isOpen, onToggle }) {
     </button>
   );
 }
+
+export function AddButton({ onAdd }) {
+  return (
+    <button className={styles.addButton} type="button" onClick={onAdd}>
+      Add
+    </button>
+  );
+}
