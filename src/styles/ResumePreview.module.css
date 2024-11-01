@@ -41,17 +41,29 @@
 }
 
 /* Education */
+.educationDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .educationDetails {
   display: flex;
   justify-content: space-between;
 }
 
-.fieldUniversityDegree {
+.fieldSchoolDegree {
   display: flex;
   flex-direction: column;
 }
 
-/* Experience*/
+/* Experience */
+.experienceDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .experienceDetails {
   display: flex;
   justify-content: space-between;
