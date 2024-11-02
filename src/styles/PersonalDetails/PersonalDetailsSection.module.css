@@ -1,0 +1,13 @@
+.personalDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid #000000;
+}
+
+.headingToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

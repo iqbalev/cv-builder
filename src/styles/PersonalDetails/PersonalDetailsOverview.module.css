@@ -1,0 +1,11 @@
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
