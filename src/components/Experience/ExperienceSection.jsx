@@ -4,7 +4,7 @@ import { AddButton, ToggleButton } from "../Buttons.jsx";
 import ExperienceForm from "./ExperienceForm.jsx";
 import ExperienceOverview from "./ExperienceOverview.jsx";
 
-function ExperienceSection({ experience, onChange, onApply, onAdd }) {
+function ExperienceSection({ experience, onChange, onApply, onAdd, onRemove }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(experience.map(() => false));
 
@@ -51,6 +51,7 @@ function ExperienceSection({ experience, onChange, onApply, onAdd }) {
                   index={index}
                   onChange={onChange}
                   onApply={handleApply}
+                  onRemove={() => onRemove(index)}
                 />
               ) : (
                 <ExperienceOverview

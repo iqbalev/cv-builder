@@ -4,7 +4,7 @@ import { AddButton, ToggleButton } from "../Buttons.jsx";
 import EducationForm from "./EducationForm.jsx";
 import EducationOverview from "./EducationOverview.jsx";
 
-function EducationSection({ education, onChange, onApply, onAdd }) {
+function EducationSection({ education, onChange, onApply, onAdd, onRemove }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(education.map(() => false));
 
@@ -51,6 +51,7 @@ function EducationSection({ education, onChange, onApply, onAdd }) {
                   index={index}
                   onChange={onChange}
                   onApply={handleApply}
+                  onRemove={() => onRemove(index)}
                 />
               ) : (
                 <EducationOverview

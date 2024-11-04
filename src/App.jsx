@@ -121,6 +121,28 @@ function App() {
     ]);
   }
 
+  function handleRemoveEducation(indexToRemove) {
+    setTempEducation((prev) => {
+      const removedEducation = prev.filter(
+        (_, index) => index !== indexToRemove
+      );
+      const updatedEducation = removedEducation;
+      handleStatesApply(setEducation, updatedEducation);
+      return updatedEducation;
+    });
+  }
+
+  function handleRemoveExperience(indexToRemove) {
+    setTempExperience((prev) => {
+      const removedExperience = prev.filter(
+        (_, index) => index !== indexToRemove
+      );
+      const updatedExperience = removedExperience;
+      handleStatesApply(setExperience, updatedExperience);
+      return updatedExperience;
+    });
+  }
+
   return (
     <main className="app-container">
       <div className="sections-container">
@@ -143,6 +165,7 @@ function App() {
             handleStatesApply(setEducation, tempEducation, index)
           }
           onAdd={handleAddEducation}
+          onRemove={handleRemoveEducation}
         />
 
         <ExperienceSection
@@ -154,6 +177,7 @@ function App() {
             handleStatesApply(setExperience, tempExperience, index)
           }
           onAdd={handleAddExperience}
+          onRemove={handleRemoveExperience}
         />
       </div>
 
