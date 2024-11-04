@@ -2,16 +2,18 @@
 .toggleButton,
 .editButton,
 .applyButton,
-.cancelButton {
+.cancelButton,
+.removeButton {
   cursor: pointer;
   border-radius: 4px;
   border: transparent;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .editButton,
 .applyButton,
-.cancelButton {
+.cancelButton,
+.removeButton {
   padding: 8px;
   margin-top: 20px;
 }
@@ -19,6 +21,11 @@
 .addButton,
 .toggleButton {
   padding: 4px;
+}
+
+.removeButton {
+  background-color: #8b0000;
+  color: #ffffff;
 }
 
 .plusIcon,
