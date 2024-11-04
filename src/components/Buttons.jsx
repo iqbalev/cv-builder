@@ -47,3 +47,11 @@ export function CancelButton({ onCancel }) {
     </button>
   );
 }
+
+export function RemoveButton({ onRemove }) {
+  return (
+    <button className={styles.removeButton} type="button" onClick={onRemove}>
+      Remove
+    </button>
+  );
+}
