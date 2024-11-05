@@ -51,7 +51,6 @@ function EducationSection({ education, onChange, onApply, onAdd, onRemove }) {
                   index={index}
                   onChange={onChange}
                   onApply={handleApply}
-                  onRemove={() => onRemove(index)}
                 />
               ) : (
                 <EducationOverview
@@ -60,6 +59,7 @@ function EducationSection({ education, onChange, onApply, onAdd, onRemove }) {
                   edu={edu}
                   index={index}
                   onEdit={handleEdit}
+                  onRemove={() => onRemove(index)}
                 />
               )
             )}

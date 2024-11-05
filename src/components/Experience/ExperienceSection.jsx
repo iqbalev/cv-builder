@@ -51,7 +51,6 @@ function ExperienceSection({ experience, onChange, onApply, onAdd, onRemove }) {
                   index={index}
                   onChange={onChange}
                   onApply={handleApply}
-                  onRemove={() => onRemove(index)}
                 />
               ) : (
                 <ExperienceOverview
@@ -60,6 +59,7 @@ function ExperienceSection({ experience, onChange, onApply, onAdd, onRemove }) {
                   exp={exp}
                   index={index}
                   onEdit={handleEdit}
+                  onRemove={() => onRemove(index)}
                 />
               )
             )}

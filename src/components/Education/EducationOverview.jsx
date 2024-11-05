@@ -1,8 +1,8 @@
 import styles from "../../styles/Education/EducationOverview.module.css";
 import formatDate from "../../utils/formatDate.js";
-import { EditButton } from "../Buttons.jsx";
+import { EditButton, RemoveButton } from "../Buttons.jsx";
 
-function EducationOverview({ length, edu, index, onEdit }) {
+function EducationOverview({ length, edu, index, onEdit, onRemove }) {
   return (
     <div className={styles.overviewContainer}>
       {length > 1 && <h3>{`Education ${index + 1}`}</h3>}
@@ -43,6 +43,7 @@ function EducationOverview({ length, edu, index, onEdit }) {
         </div>
 
         <div className={styles.button}>
+          <RemoveButton onRemove={onRemove} />
           <EditButton onEdit={() => onEdit(index)} />
         </div>
       </div>

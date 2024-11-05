@@ -1,7 +1,7 @@
 import styles from "../../styles/Education/EducationForm.module.css";
-import { ApplyButton, CancelButton, RemoveButton } from "../Buttons.jsx";
+import { ApplyButton, CancelButton } from "../Buttons.jsx";
 
-function EducationForm({ length, edu, index, onChange, onApply, onRemove }) {
+function EducationForm({ length, edu, index, onChange, onApply }) {
   return (
     <div className={styles.formContainer}>
       {length > 1 && <h3>{`Education ${index + 1}`}</h3>}
@@ -93,7 +93,6 @@ function EducationForm({ length, edu, index, onChange, onApply, onRemove }) {
         </div>
 
         <div className={styles.button}>
-          <RemoveButton onRemove={onRemove} />
           <ApplyButton />
           <CancelButton />
         </div>

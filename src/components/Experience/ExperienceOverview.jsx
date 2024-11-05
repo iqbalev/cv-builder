@@ -1,8 +1,8 @@
 import styles from "../../styles/Experience/ExperienceOverview.module.css";
 import formatDate from "../../utils/formatDate.js";
-import { EditButton } from "../Buttons.jsx";
+import { EditButton, RemoveButton } from "../Buttons.jsx";
 
-function ExperienceOverview({ length, exp, index, onEdit }) {
+function ExperienceOverview({ length, exp, index, onEdit, onRemove }) {
   return (
     <div className={styles.overviewContainer}>
       {length > 1 && <h3>{`Experience ${index + 1}`}</h3>}
@@ -45,6 +45,7 @@ function ExperienceOverview({ length, exp, index, onEdit }) {
         </ul>
 
         <div className={styles.button}>
+          <RemoveButton onRemove={onRemove} />
           <EditButton onEdit={() => onEdit(index)} />
         </div>
       </div>
