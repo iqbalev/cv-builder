@@ -19,6 +19,9 @@ function PersonalDetailsSection({ personalDetails, onChange, onApply }) {
   function handleApply(e) {
     e.preventDefault();
     onApply();
+  }
+
+  function handleBack() {
     setIsEditing(false);
   }
 
@@ -35,6 +38,7 @@ function PersonalDetailsSection({ personalDetails, onChange, onApply }) {
               personalDetails={personalDetails}
               onChange={onChange}
               onApply={handleApply}
+              onBack={handleBack}
             />
           ) : (
             <PersonalDetailsOverview

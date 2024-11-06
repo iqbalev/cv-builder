@@ -1,7 +1,7 @@
 import styles from "../../styles/Experience/ExperienceForm.module.css";
-import { ApplyButton, CancelButton } from "../Buttons.jsx";
+import { ApplyButton, BackButton } from "../Buttons.jsx";
 
-function ExperienceForm({ length, exp, index, onChange, onApply }) {
+function ExperienceForm({ length, exp, index, onChange, onApply, onBack }) {
   return (
     <div className={styles.formContainer}>
       {length > 1 && <h3>{`Experience ${index + 1}`}</h3>}
@@ -92,7 +92,8 @@ function ExperienceForm({ length, exp, index, onChange, onApply }) {
 
         <div className={styles.button}>
           <ApplyButton />
-          <CancelButton />
+
+          <BackButton onBack={onBack} />
         </div>
       </form>
     </div>

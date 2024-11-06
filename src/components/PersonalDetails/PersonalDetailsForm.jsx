@@ -1,7 +1,7 @@
 import styles from "../../styles/PersonalDetails/PersonalDetailsForm.module.css";
-import { ApplyButton, CancelButton } from "../Buttons.jsx";
+import { ApplyButton, BackButton } from "../Buttons.jsx";
 
-function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
+function PersonalDetailsForm({ personalDetails, onChange, onApply, onBack }) {
   return (
     <form className={styles.form} onSubmit={onApply}>
       <label className={styles.label}>
@@ -66,7 +66,7 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply }) {
 
       <div className={styles.button}>
         <ApplyButton />
-        <CancelButton />
+        <BackButton onBack={onBack} />
       </div>
     </form>
   );

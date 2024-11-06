@@ -23,6 +23,9 @@ function ExperienceSection({ experience, onChange, onApply, onAdd, onRemove }) {
   function handleApply(e, index) {
     e.preventDefault();
     onApply(index);
+  }
+
+  function handleBack(index) {
     setIsEditing((prev) => {
       const newArray = [...prev];
       newArray[index] = false;
@@ -51,6 +54,7 @@ function ExperienceSection({ experience, onChange, onApply, onAdd, onRemove }) {
                   index={index}
                   onChange={onChange}
                   onApply={handleApply}
+                  onBack={() => handleBack(index)}
                 />
               ) : (
                 <ExperienceOverview
