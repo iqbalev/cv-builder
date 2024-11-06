@@ -40,10 +40,10 @@ export function ApplyButton() {
   );
 }
 
-export function CancelButton({ onCancel }) {
+export function BackButton({ onBack }) {
   return (
-    <button className={styles.cancelButton} type="button" onClick={onCancel}>
-      Cancel
+    <button className={styles.backButton} type="button" onClick={onBack}>
+      Back
     </button>
   );
 }
