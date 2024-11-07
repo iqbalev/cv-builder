@@ -4,6 +4,10 @@
   gap: 4px;
 }
 
+.heading {
+  text-transform: uppercase;
+}
+
 .overview {
   display: flex;
   flex-direction: column;
@@ -13,5 +17,4 @@
 .button {
   display: flex;
   gap: 10px;
-  justify-content: flex-end;
 }
