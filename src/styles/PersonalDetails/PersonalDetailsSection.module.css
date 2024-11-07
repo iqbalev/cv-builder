@@ -2,12 +2,18 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 20px;
-  border: 1px solid #000000;
+  padding: 10px;
+  border-radius: 8px;
 }
 
-.headingToggle {
+.headingIcon {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  gap: 20px;
+}
+
+.heading {
+  text-transform: uppercase;
 }
