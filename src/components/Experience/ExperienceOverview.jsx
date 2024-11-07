@@ -5,7 +5,9 @@ import { EditButton, RemoveButton } from "../Buttons.jsx";
 function ExperienceOverview({ length, exp, index, onEdit, onRemove }) {
   return (
     <div className={styles.overviewContainer}>
-      {length > 1 && <h3>{`Experience ${index + 1}`}</h3>}
+      {length > 1 && (
+        <h3 className={styles.heading}>{`Experience ${index + 1}`}</h3>
+      )}
       <div className={styles.overview}>
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Job Title</h4>

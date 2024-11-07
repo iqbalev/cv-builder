@@ -4,7 +4,9 @@ import { ApplyButton, BackButton } from "../Buttons.jsx";
 function ExperienceForm({ length, exp, index, onChange, onApply, onBack }) {
   return (
     <div className={styles.formContainer}>
-      {length > 1 && <h3>{`Experience ${index + 1}`}</h3>}
+      {length > 1 && (
+        <h3 className={styles.heading}>{`Experience ${index + 1}`}</h3>
+      )}
       <form className={styles.form} onSubmit={(e) => onApply(e, index)}>
         <label className={styles.label}>
           Job Title

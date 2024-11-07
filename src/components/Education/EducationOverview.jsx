@@ -5,7 +5,9 @@ import { EditButton, RemoveButton } from "../Buttons.jsx";
 function EducationOverview({ length, edu, index, onEdit, onRemove }) {
   return (
     <div className={styles.overviewContainer}>
-      {length > 1 && <h3>{`Education ${index + 1}`}</h3>}
+      {length > 1 && (
+        <h3 className={styles.heading}>{`Education ${index + 1}`}</h3>
+      )}
       <div className={styles.overview}>
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Field of Study</h4>

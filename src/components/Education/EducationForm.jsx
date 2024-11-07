@@ -4,7 +4,9 @@ import { ApplyButton, BackButton } from "../Buttons.jsx";
 function EducationForm({ length, edu, index, onChange, onApply, onBack }) {
   return (
     <div className={styles.formContainer}>
-      {length > 1 && <h3>{`Education ${index + 1}`}</h3>}
+      {length > 1 && (
+        <h3 className={styles.heading}>{`Education ${index + 1}`}</h3>
+      )}
       <form className={styles.form} onSubmit={(e) => onApply(e, index)}>
         <label className={styles.label}>
           Field of Study
