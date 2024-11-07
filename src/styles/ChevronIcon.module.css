@@ -1,0 +1,8 @@
+.chevronIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+.chevronIcon.rotate {
+  transform: rotate(-180deg);
+}
