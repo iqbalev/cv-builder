@@ -1,33 +1,17 @@
-import ChevronIcon from "../assets/ChevronIcon.svg";
-import PlusIcon from "../assets/PlusIcon.svg";
 import styles from "../styles/Buttons.module.css";
 
 export function AddButton({ onAdd }) {
   return (
     <button className={styles.addButton} type="button" onClick={onAdd}>
-      <img className={styles.plusIcon} src={PlusIcon} alt="Plus Icon" />
+      + Add New Entry
     </button>
   );
 }
 
-export function ToggleButton({ isOpen, onToggle }) {
+export function BackButton({ onBack }) {
   return (
-    <button className={styles.toggleButton} onClick={onToggle}>
-      <img
-        className={
-          isOpen ? `${styles.chevronIcon} ${styles.rotate}` : styles.chevronIcon
-        }
-        src={ChevronIcon}
-        alt="Chevron Icon"
-      />
-    </button>
-  );
-}
-
-export function EditButton({ onEdit }) {
-  return (
-    <button className={styles.editButton} type="button" onClick={onEdit}>
-      Edit
+    <button className={styles.backButton} type="button" onClick={onBack}>
+      Back
     </button>
   );
 }
@@ -40,10 +24,10 @@ export function ApplyButton() {
   );
 }
 
-export function BackButton({ onBack }) {
+export function EditButton({ onEdit }) {
   return (
-    <button className={styles.backButton} type="button" onClick={onBack}>
-      Back
+    <button className={styles.editButton} type="button" onClick={onEdit}>
+      Edit
     </button>
   );
 }
