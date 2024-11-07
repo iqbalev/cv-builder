@@ -1,8 +1,8 @@
 import { useState } from "react";
-import styles from "../../styles/PersonalDetails/PersonalDetailsSection.module.css";
-import { ToggleButton } from "../Buttons.jsx";
+import { ChevronIconToggle } from "../ChevronIconToggle.jsx";
 import PersonalDetailsForm from "./PersonalDetailsForm.jsx";
 import PersonalDetailsOverview from "./PersonalDetailsOverview.jsx";
+import styles from "../../styles/PersonalDetails/PersonalDetailsSection.module.css";
 
 function PersonalDetailsSection({ personalDetails, onChange, onApply }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,9 +27,9 @@ function PersonalDetailsSection({ personalDetails, onChange, onApply }) {
 
   return (
     <section className={styles.personalDetailsContainer}>
-      <div className={styles.headingToggle}>
+      <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Personal Details</h2>
-        <ToggleButton onToggle={handleToggle} isOpen={isOpen} />
+        <ChevronIconToggle isOpen={isOpen} />
       </div>
       {isOpen && (
         <>

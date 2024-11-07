@@ -1,8 +1,9 @@
 import { useState } from "react";
-import styles from "../../styles/Education/EducationSection.module.css";
-import { AddButton, ToggleButton } from "../Buttons.jsx";
+import { AddButton } from "../Buttons.jsx";
+import { ChevronIconToggle } from "../ChevronIconToggle.jsx";
 import EducationForm from "./EducationForm.jsx";
 import EducationOverview from "./EducationOverview.jsx";
+import styles from "../../styles/Education/EducationSection.module.css";
 
 function EducationSection({ education, onChange, onApply, onAdd, onRemove }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,12 +36,9 @@ function EducationSection({ education, onChange, onApply, onAdd, onRemove }) {
 
   return (
     <section className={styles.educationContainer}>
-      <div className={styles.headingAddToggle}>
+      <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Education</h2>
-        <div className={styles.addToggle}>
-          <AddButton onAdd={onAdd} />
-          <ToggleButton onToggle={handleToggle} isOpen={isOpen} />
-        </div>
+        <ChevronIconToggle isOpen={isOpen} />
       </div>
       {isOpen && (
         <>
@@ -67,6 +65,7 @@ function EducationSection({ education, onChange, onApply, onAdd, onRemove }) {
                 />
               )
             )}
+            <AddButton onAdd={onAdd} />
           </div>
         </>
       )}
