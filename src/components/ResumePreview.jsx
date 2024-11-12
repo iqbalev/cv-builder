@@ -4,7 +4,7 @@ import EmailIcon from "../assets/EmailIcon.svg";
 import PhoneIcon from "../assets/PhoneIcon.svg";
 import formatDate from "../utils/formatDate";
 
-function ResumePreview({ personalDetails, education, experience }) {
+function ResumePreview({ personalDetails, education, experience, project }) {
   return (
     <>
       <section className={styles.personalDetailsContainer}>
@@ -114,6 +114,24 @@ function ResumePreview({ personalDetails, education, experience }) {
                   <li key={index}>{responsibility}</li>
                 ))}
               </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.projectContainer}>
+        <h2 className={styles.projectHeading}>Project</h2>
+        <div className={styles.projectDetailsContainer}>
+          {project.map((project, index) => (
+            <div key={index} className={styles.projectDetails}>
+              <div className={styles.nameLink}>
+                <p>{project.projectName}</p> |{" "}
+                <p>
+                  <a href={project.link}>Link</a>
+                </p>
+              </div>
+
+              <p>{project.summary}</p>
             </div>
           ))}
         </div>
