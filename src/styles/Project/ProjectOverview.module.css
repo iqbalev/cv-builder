@@ -1,0 +1,20 @@
+.overviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heading {
+  text-transform: uppercase;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button {
+  display: flex;
+  gap: 10px;
+}
