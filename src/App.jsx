@@ -3,6 +3,7 @@ import "./App.css";
 import EducationSection from "./components/Education/EducationSection";
 import ExperienceSection from "./components/Experience/ExperienceSection";
 import PersonalDetailsSection from "./components/PersonalDetails/PersonalDetailsSection";
+import ProjectSection from "./components/Project/ProjectSection";
 import ResumePreview from "./components/ResumePreview";
 
 function App() {
@@ -44,6 +45,15 @@ function App() {
     },
   ]);
 
+  const [project, setProject] = useState([
+    {
+      projectName: "CV Builder",
+      link: "http://localhost:5173/",
+      summary:
+        "A dynamic CV Builder. Developed with React.js to maintain a responsive and interactive user experience.",
+    },
+  ]);
+
   /* 
   - These are the TEMP states that will hold the data before the user clicks on apply button
   - They will allow user to make changes in edit mode without affecting the main states
@@ -52,6 +62,7 @@ function App() {
     useState(personalDetails);
   const [tempEducation, setTempEducation] = useState(education);
   const [tempExperience, setTempExperience] = useState(experience);
+  const [tempProject, setTempProject] = useState(project);
 
   function handleTempStatesChange(e, index, setState) {
     const { name, value, checked } = e.target;
@@ -121,6 +132,17 @@ function App() {
     ]);
   }
 
+  function handleAddProject() {
+    setTempProject((prev) => [
+      ...prev,
+      {
+        projectName: "",
+        link: "",
+        summary: "",
+      },
+    ]);
+  }
+
   function handleRemoveEducation(indexToRemove) {
     setTempEducation((prev) => {
       const removedEducation = prev.filter(
@@ -140,6 +162,15 @@ function App() {
       const updatedExperience = removedExperience;
       handleStatesApply(setExperience, updatedExperience);
       return updatedExperience;
+    });
+  }
+
+  function handleRemoveProject(indexToRemove) {
+    setTempProject((prev) => {
+      const removedProject = prev.filter((_, index) => index !== indexToRemove);
+      const updatedProject = removedProject;
+      handleStatesApply(setProject, updatedProject);
+      return updatedProject;
     });
   }
 
@@ -179,6 +210,16 @@ function App() {
           onAdd={handleAddExperience}
           onRemove={handleRemoveExperience}
         />
+
+        <ProjectSection
+          project={tempProject}
+          onChange={(e, index) =>
+            handleTempStatesChange(e, index, setTempProject)
+          }
+          onApply={(index) => handleStatesApply(setProject, tempProject, index)}
+          onAdd={handleAddProject}
+          onRemove={handleRemoveProject}
+        />
       </div>
 
       <div className="resume-preview-container">
@@ -186,6 +227,7 @@ function App() {
           personalDetails={personalDetails}
           education={education}
           experience={experience}
+          project={project}
         />
       </div>
     </main>
