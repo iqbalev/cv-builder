@@ -1,7 +1,8 @@
 /* Grouping */
 .personalDetailsContainer,
 .educationContainer,
-.experienceContainer {
+.experienceContainer,
+.projectContainer {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -9,7 +10,8 @@
 }
 
 .educationHeading,
-.experienceHeading {
+.experienceHeading,
+.projectHeading {
   text-transform: uppercase;
   border-bottom: 1px solid #000000;
 }
@@ -74,4 +76,21 @@
 .titleCompanyStartEnd {
   display: flex;
   justify-content: space-between;
+}
+
+/* Project */
+.projectDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projectDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameLink {
+  display: flex;
+  gap: 2px;
 }
