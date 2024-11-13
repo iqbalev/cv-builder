@@ -74,7 +74,8 @@ function ResumePreview({ personalDetails, education, experience, project }) {
               <div className={styles.startEnd}>
                 {education.startDate && (
                   <p>
-                    {formatDate(education.startDate)}-
+                    {formatDate(education.startDate)}
+                    <span className={styles.separator}>-</span>
                     {education.isCurrentlyActive
                       ? "Present"
                       : formatDate(education.endDate)}
@@ -100,7 +101,8 @@ function ResumePreview({ personalDetails, education, experience, project }) {
                 <div className={styles.startEnd}>
                   {experience.startDate && (
                     <p>
-                      {formatDate(experience.startDate)}-
+                      {formatDate(experience.startDate)}
+                      <span className={styles.separator}>-</span>
                       {experience.isCurrentlyActive
                         ? "Present"
                         : formatDate(experience.endDate)}
@@ -124,13 +126,17 @@ function ResumePreview({ personalDetails, education, experience, project }) {
         <div className={styles.projectDetailsContainer}>
           {project.map((project, index) => (
             <div key={index} className={styles.projectDetails}>
-              <div className={styles.nameLink}>
-                <p>{project.projectName}</p> |{" "}
-                <p>
-                  <a href={project.link}>Link</a>
-                </p>
-              </div>
-
+              <p>
+                {project.projectName}
+                {project.link && (
+                  <>
+                    <span className={styles.separator}>|</span>
+                    <a className={styles.link} href={project.link}>
+                      Link
+                    </a>
+                  </>
+                )}
+              </p>
               <p>{project.summary}</p>
             </div>
           ))}
