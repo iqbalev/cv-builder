@@ -16,6 +16,10 @@
   border-bottom: 1px solid #000000;
 }
 
+.separator {
+  margin: 0 2px;
+}
+
 /* Personal Details */
 .personalDetailsContainer {
   justify-content: space-between;
@@ -90,7 +94,6 @@
   flex-direction: column;
 }
 
-.nameLink {
-  display: flex;
-  gap: 2px;
+.link {
+  text-decoration: none;
 }
