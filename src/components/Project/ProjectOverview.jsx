@@ -26,11 +26,11 @@ function ProjectOverview({ length, proj, index, onEdit, onRemove }) {
           <h4 className={styles.subHeading}>Summary</h4>
           <p className={styles.text}>{proj.summary ? proj.summary : "-"}</p>
         </div>
-      </div>
 
-      <div className={styles.button}>
-        <RemoveButton onRemove={onRemove} />
-        <EditButton onEdit={() => onEdit(index)} />
+        <div className={styles.button}>
+          <RemoveButton onRemove={onRemove} />
+          <EditButton onEdit={() => onEdit(index)} />
+        </div>
       </div>
     </div>
   );
