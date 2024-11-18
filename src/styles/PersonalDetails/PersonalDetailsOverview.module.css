@@ -4,6 +4,10 @@
   gap: 10px;
 }
 
+.subHeading {
+  font-weight: normal;
+}
+
 .button {
   display: flex;
   gap: 10px;

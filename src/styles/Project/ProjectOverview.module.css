@@ -14,6 +14,14 @@
   gap: 10px;
 }
 
+.link {
+  text-decoration: none;
+}
+
+.subHeading {
+  font-weight: normal;
+}
+
 .button {
   display: flex;
   gap: 10px;
