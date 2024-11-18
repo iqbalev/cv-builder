@@ -18,7 +18,13 @@ function ProjectOverview({ length, proj, index, onEdit, onRemove }) {
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Link</h4>
           <p className={styles.text}>
-            {proj.link ? <a href={proj.link}>{proj.link}</a> : "-"}
+            {proj.link ? (
+              <a className={styles.link} href={proj.link}>
+                {proj.link}
+              </a>
+            ) : (
+              "-"
+            )}
           </p>
         </div>
 
