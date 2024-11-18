@@ -1,7 +1,9 @@
 import ChevronIcon from "../assets/ChevronIcon.svg";
-import styles from "../styles/ChevronIcon.module.css";
+import MinIcon from "../assets/MinIcon.svg";
+import PlusIcon from "../assets/PlusIcon.svg";
+import styles from "../styles/ToggleIcons.module.css";
 
-export function ChevronIconToggle({ isOpen }) {
+export function ChevronToggleIcon({ isOpen }) {
   return (
     <img
       className={
@@ -9,6 +11,16 @@ export function ChevronIconToggle({ isOpen }) {
       }
       src={ChevronIcon}
       alt="Chevron Icon"
+    />
+  );
+}
+
+export function PlusMinToggleIcon({ isOpen }) {
+  return (
+    <img
+      className={styles.plusMinIcon}
+      src={isOpen ? MinIcon : PlusIcon}
+      alt=""
     />
   );
 }
