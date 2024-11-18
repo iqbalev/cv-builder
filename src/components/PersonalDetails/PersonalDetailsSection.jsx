@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronIconToggle } from "../ChevronIconToggle.jsx";
+import { ChevronToggleIcon } from "../ToggleIcons.jsx";
 import PersonalDetailsForm from "./PersonalDetailsForm.jsx";
 import PersonalDetailsOverview from "./PersonalDetailsOverview.jsx";
 import styles from "../../styles/PersonalDetails/PersonalDetailsSection.module.css";
@@ -29,7 +29,7 @@ function PersonalDetailsSection({ personalDetails, onChange, onApply }) {
     <section className={styles.personalDetailsContainer}>
       <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Personal Details</h2>
-        <ChevronIconToggle isOpen={isOpen} />
+        <ChevronToggleIcon isOpen={isOpen} />
       </div>
       {isOpen && (
         <>

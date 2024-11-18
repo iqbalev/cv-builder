@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddButton } from "../Buttons.jsx";
-import { ChevronIconToggle } from "../ChevronIconToggle.jsx";
+import { ChevronToggleIcon } from "../ToggleIcons.jsx";
 import ExperienceForm from "./ExperienceForm.jsx";
 import ExperienceOverview from "./ExperienceOverview.jsx";
 import styles from "../../styles/Experience/ExperienceSection.module.css";
@@ -38,7 +38,7 @@ function ExperienceSection({ experience, onChange, onApply, onAdd, onRemove }) {
     <section className={styles.experienceContainer}>
       <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Experience</h2>
-        <ChevronIconToggle isOpen={isOpen} />
+        <ChevronToggleIcon isOpen={isOpen} />
       </div>
       {isOpen && (
         <>
