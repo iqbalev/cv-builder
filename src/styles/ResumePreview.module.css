@@ -39,13 +39,6 @@
   align-items: center;
 }
 
-.phoneIcon,
-.emailIcon,
-.addressIcon {
-  width: 20px;
-  height: 20px;
-}
-
 /* Education */
 .educationDetailsContainer {
   display: flex;
