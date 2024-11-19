@@ -5,8 +5,15 @@ function ProjectOverview({ length, proj, index, onEdit, onRemove }) {
   return (
     <div className={styles.overviewContainer}>
       {length > 1 && (
-        <h3 className={styles.heading}>{`Project ${index + 1}`}</h3>
+        <div className={styles.headingButtons}>
+          <h3 className={styles.heading}>{`Project ${index + 1}`}</h3>
+          <div className={styles.buttons}>
+            <RemoveButton onRemove={onRemove} showIcon={true} />
+            <EditButton onEdit={() => onEdit(index)} showIcon={true} />
+          </div>
+        </div>
       )}
+
       <div className={styles.overview}>
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Project Name</h4>
@@ -43,10 +50,12 @@ function ProjectOverview({ length, proj, index, onEdit, onRemove }) {
           </p>
         </div>
 
-        <div className={styles.button}>
-          <RemoveButton onRemove={onRemove} />
-          <EditButton onEdit={() => onEdit(index)} />
-        </div>
+        {length <= 1 && (
+          <div className={styles.buttons}>
+            <RemoveButton onRemove={onRemove} showIcon={false} />
+            <EditButton onEdit={() => onEdit(index)} showIcon={false} />
+          </div>
+        )}
       </div>
     </div>
   );

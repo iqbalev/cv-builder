@@ -59,7 +59,7 @@ function PersonalDetailsOverview({ personalDetails, onEdit }) {
         </p>
       </div>
 
-      <div className={styles.button}>
+      <div className={styles.buttons}>
         <EditButton onEdit={onEdit} />
       </div>
     </div>

@@ -6,8 +6,15 @@ function EducationOverview({ length, edu, index, onEdit, onRemove }) {
   return (
     <div className={styles.overviewContainer}>
       {length > 1 && (
-        <h3 className={styles.heading}>{`Education ${index + 1}`}</h3>
+        <div className={styles.headingButtons}>
+          <h3 className={styles.heading}>{`Education ${index + 1}`}</h3>
+          <div className={styles.buttons}>
+            <RemoveButton onRemove={onRemove} showIcon={true} />
+            <EditButton onEdit={() => onEdit(index)} showIcon={true} />
+          </div>
+        </div>
       )}
+
       <div className={styles.overview}>
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Field of Study</h4>
@@ -66,10 +73,12 @@ function EducationOverview({ length, edu, index, onEdit, onRemove }) {
           </p>
         </div>
 
-        <div className={styles.button}>
-          <RemoveButton onRemove={onRemove} />
-          <EditButton onEdit={() => onEdit(index)} />
-        </div>
+        {length <= 1 && (
+          <div className={styles.buttons}>
+            <RemoveButton onRemove={onRemove} showIcon={false} />
+            <EditButton onEdit={() => onEdit(index)} showIcon={false} />
+          </div>
+        )}
       </div>
     </div>
   );
