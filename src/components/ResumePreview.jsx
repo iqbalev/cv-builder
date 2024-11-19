@@ -1,5 +1,5 @@
-import { AddressIcon, EmailIcon, PhoneIcon } from "./ToggleIcons";
-import formatDate from "../utils/formatDate";
+import { AddressIcon, EmailIcon, PhoneIcon } from "./Icons.jsx";
+import formatDate from "../utils/formatDate.js";
 import styles from "../styles/ResumePreview.module.css";
 
 function ResumePreview({ personalDetails, education, experience, project }) {

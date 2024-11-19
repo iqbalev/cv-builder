@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddButton } from "../Buttons.jsx";
-import { ChevronToggleIcon } from "../ToggleIcons.jsx";
+import { ChevronIcon } from "../Icons.jsx";
 import EducationForm from "./EducationForm.jsx";
 import EducationOverview from "./EducationOverview.jsx";
 import styles from "../../styles/Education/EducationSection.module.css";
@@ -38,7 +38,7 @@ function EducationSection({ education, onChange, onApply, onAdd, onRemove }) {
     <section className={styles.educationContainer}>
       <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Education</h2>
-        <ChevronToggleIcon isOpen={isOpen} />
+        <ChevronIcon isOpen={isOpen} />
       </div>
       {isOpen && (
         <>

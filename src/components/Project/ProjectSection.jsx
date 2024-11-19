@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddButton } from "../Buttons.jsx";
-import { ChevronToggleIcon } from "../ToggleIcons.jsx";
+import { ChevronIcon } from "../Icons.jsx";
 import ProjectForm from "./ProjectForm.jsx";
 import ProjectOverview from "./ProjectOverview.jsx";
 import styles from "../../styles/Project/ProjectSection.module.css";
@@ -38,7 +38,7 @@ function ProjectSection({ project, onChange, onApply, onAdd, onRemove }) {
     <section className={styles.projectContainer}>
       <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Project</h2>
-        <ChevronToggleIcon isOpen={isOpen} />
+        <ChevronIcon isOpen={isOpen} />
       </div>
       {isOpen && (
         <>
