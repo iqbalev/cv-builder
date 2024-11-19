@@ -1,3 +1,4 @@
+import { EyeIcon, PencilIcon, TickIcon, TrashIcon } from "./Icons";
 import styles from "../styles/Buttons.module.css";
 
 export function AddButton({ onAdd }) {
@@ -8,34 +9,62 @@ export function AddButton({ onAdd }) {
   );
 }
 
-export function BackButton({ onBack }) {
+export function BackButton({ onBack, showIcon }) {
   return (
-    <button className={styles.backButton} type="button" onClick={onBack}>
-      Back
+    <button
+      className={
+        showIcon ? `${styles.backButton} ${styles.showIcon}` : styles.backButton
+      }
+      type="button"
+      onClick={onBack}
+    >
+      {showIcon ? <EyeIcon /> : "Back"}
     </button>
   );
 }
 
-export function ApplyButton() {
+export function ApplyButton({ onApply, showIcon }) {
   return (
-    <button className={styles.applyButton} type="submit">
-      Apply
+    <button
+      className={
+        showIcon
+          ? `${styles.applyButton} ${styles.showIcon}`
+          : styles.applyButton
+      }
+      type="submit"
+      onClick={onApply}
+    >
+      {showIcon ? <TickIcon /> : "Apply"}
     </button>
   );
 }
 
-export function EditButton({ onEdit }) {
+export function EditButton({ onEdit, showIcon }) {
   return (
-    <button className={styles.editButton} type="button" onClick={onEdit}>
-      Edit
+    <button
+      className={
+        showIcon ? `${styles.editButton} ${styles.showIcon}` : styles.editButton
+      }
+      type="button"
+      onClick={onEdit}
+    >
+      {showIcon ? <PencilIcon /> : "Edit"}
     </button>
   );
 }
 
-export function RemoveButton({ onRemove }) {
+export function RemoveButton({ onRemove, showIcon }) {
   return (
-    <button className={styles.removeButton} type="button" onClick={onRemove}>
-      Remove
+    <button
+      className={
+        showIcon
+          ? `${styles.removeButton} ${styles.showIcon}`
+          : styles.removeButton
+      }
+      type="button"
+      onClick={onRemove}
+    >
+      {showIcon ? <TrashIcon /> : "Remove"}
     </button>
   );
 }
