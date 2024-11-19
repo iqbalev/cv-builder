@@ -7,35 +7,55 @@ function PersonalDetailsOverview({ personalDetails, onEdit }) {
       <div className={styles.details}>
         <h4 className={styles.subHeading}>Full Name</h4>
         <p className={styles.text}>
-          {personalDetails.fullName ? personalDetails.fullName : "-"}
+          {personalDetails.fullName ? (
+            personalDetails.fullName
+          ) : (
+            <span className={styles.notAvailable}>N/A</span>
+          )}
         </p>
       </div>
 
       <div className={styles.details}>
         <h4 className={styles.subHeading}>Job Title</h4>
         <p className={styles.text}>
-          {personalDetails.jobTitle ? personalDetails.jobTitle : "-"}
+          {personalDetails.jobTitle ? (
+            personalDetails.jobTitle
+          ) : (
+            <span className={styles.notAvailable}>N/A</span>
+          )}
         </p>
       </div>
 
       <div className={styles.details}>
         <h4 className={styles.subHeading}>Phone Number</h4>
         <p className={styles.text}>
-          {personalDetails.phoneNumber ? personalDetails.phoneNumber : "-"}
+          {personalDetails.phoneNumber ? (
+            personalDetails.phoneNumber
+          ) : (
+            <span className={styles.notAvailable}>N/A</span>
+          )}
         </p>
       </div>
 
       <div className={styles.details}>
         <h4 className={styles.subHeading}>Email</h4>
         <p className={styles.text}>
-          {personalDetails.email ? personalDetails.email : "-"}
+          {personalDetails.email ? (
+            personalDetails.email
+          ) : (
+            <span className={styles.notAvailable}>N/A</span>
+          )}
         </p>
       </div>
 
       <div className={styles.details}>
         <h4 className={styles.subHeading}>Address</h4>
         <p className={styles.text}>
-          {personalDetails.address ? personalDetails.address : "-"}
+          {personalDetails.address ? (
+            personalDetails.address
+          ) : (
+            <span className={styles.notAvailable}>N/A</span>
+          )}
         </p>
       </div>
 

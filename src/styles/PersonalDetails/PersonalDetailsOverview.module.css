@@ -8,6 +8,10 @@
   font-weight: normal;
 }
 
+.notAvailable {
+  font-style: italic;
+}
+
 .button {
   display: flex;
   gap: 10px;

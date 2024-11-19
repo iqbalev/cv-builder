@@ -12,35 +12,57 @@ function EducationOverview({ length, edu, index, onEdit, onRemove }) {
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Field of Study</h4>
           <p className={styles.text}>
-            {edu.fieldOfStudy ? edu.fieldOfStudy : "-"}
+            {edu.fieldOfStudy ? (
+              edu.fieldOfStudy
+            ) : (
+              <span className={styles.notAvailable}>N/A</span>
+            )}
           </p>
         </div>
 
         <div className={styles.details}>
           <h4 className={styles.subHeading}>School</h4>
-          <p className={styles.text}>{edu.school ? edu.school : "-"}</p>
+          <p className={styles.text}>
+            {edu.school ? (
+              edu.school
+            ) : (
+              <span className={styles.notAvailable}>N/A</span>
+            )}
+          </p>
         </div>
 
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Degree</h4>
-          <p className={styles.text}>{edu.degree ? edu.degree : "-"}</p>
+          <p className={styles.text}>
+            {edu.degree ? (
+              edu.degree
+            ) : (
+              <span className={styles.notAvailable}>N/A</span>
+            )}
+          </p>
         </div>
 
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Start Date</h4>
           <p className={styles.text}>
-            {edu.startDate ? formatDate(edu.startDate) : "-"}
+            {edu.startDate ? (
+              formatDate(edu.startDate)
+            ) : (
+              <span className={styles.notAvailable}>N/A</span>
+            )}
           </p>
         </div>
 
         <div className={styles.details}>
           <h4 className={styles.subHeading}>End Date</h4>
           <p className={styles.text}>
-            {edu.isCurrentlyActive
-              ? "Present"
-              : edu.endDate
-              ? formatDate(edu.endDate)
-              : "-"}
+            {edu.isCurrentlyActive ? (
+              "Present"
+            ) : edu.endDate ? (
+              formatDate(edu.endDate)
+            ) : (
+              <span className={styles.notAvailable}>N/A</span>
+            )}
           </p>
         </div>
 

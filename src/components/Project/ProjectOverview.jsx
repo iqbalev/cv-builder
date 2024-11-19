@@ -11,7 +11,11 @@ function ProjectOverview({ length, proj, index, onEdit, onRemove }) {
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Project Name</h4>
           <p className={styles.text}>
-            {proj.projectName ? proj.projectName : "-"}
+            {proj.projectName ? (
+              proj.projectName
+            ) : (
+              <span className={styles.notAvailable}>N/A</span>
+            )}
           </p>
         </div>
 
@@ -23,14 +27,20 @@ function ProjectOverview({ length, proj, index, onEdit, onRemove }) {
                 {proj.link}
               </a>
             ) : (
-              "-"
+              <span className={styles.notAvailable}>N/A</span>
             )}
           </p>
         </div>
 
         <div className={styles.details}>
           <h4 className={styles.subHeading}>Summary</h4>
-          <p className={styles.text}>{proj.summary ? proj.summary : "-"}</p>
+          <p className={styles.text}>
+            {proj.summary ? (
+              proj.summary
+            ) : (
+              <span className={styles.notAvailable}>N/A</span>
+            )}
+          </p>
         </div>
 
         <div className={styles.button}>
