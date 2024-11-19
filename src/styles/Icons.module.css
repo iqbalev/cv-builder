@@ -1,3 +1,10 @@
+.addressIcon,
+.emailIcon,
+.phoneIcon {
+  width: 20px;
+  height: 20px;
+}
+
 .chevronIcon {
   width: 24px;
   height: 24px;
