@@ -64,7 +64,7 @@ function PersonalDetailsForm({ personalDetails, onChange, onApply, onBack }) {
         />
       </label>
 
-      <div className={styles.button}>
+      <div className={styles.buttons}>
         <ApplyButton />
         <BackButton onBack={onBack} />
       </div>

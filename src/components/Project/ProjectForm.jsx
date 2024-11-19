@@ -5,8 +5,15 @@ function ProjectForm({ length, proj, index, onChange, onApply, onBack }) {
   return (
     <div className={styles.formContainer}>
       {length > 1 && (
-        <h3 className={styles.heading}>{`Project ${index + 1}`}</h3>
+        <div className={styles.headingButtons}>
+          <h3 className={styles.heading}>{`Project ${index + 1}`}</h3>
+          <div className={styles.buttons}>
+            <ApplyButton onApply={(e) => onApply(e, index)} showIcon={true} />
+            <BackButton onBack={onBack} showIcon={true} />
+          </div>
+        </div>
       )}
+
       <form className={styles.form} onSubmit={(e) => onApply(e, index)}>
         <label className={styles.label}>
           Project Name
@@ -43,10 +50,12 @@ function ProjectForm({ length, proj, index, onChange, onApply, onBack }) {
           ></textarea>
         </label>
 
-        <div className={styles.button}>
-          <ApplyButton />
-          <BackButton onBack={onBack} />
-        </div>
+        {length <= 1 && (
+          <div className={styles.buttons}>
+            <ApplyButton showIcon={false} />
+            <BackButton onBack={onBack} showIcon={false} />
+          </div>
+        )}
       </form>
     </div>
   );
