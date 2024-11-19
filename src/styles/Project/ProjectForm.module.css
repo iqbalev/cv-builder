@@ -4,8 +4,19 @@
   gap: 4px;
 }
 
+.headingButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .heading {
   text-transform: uppercase;
+}
+
+.buttons {
+  display: flex;
+  gap: 4px;
 }
 
 .form {
@@ -35,9 +46,4 @@
   resize: vertical;
   background-color: #f0f0f0;
   line-height: inherit;
-}
-
-.button {
-  display: flex;
-  gap: 10px;
 }
