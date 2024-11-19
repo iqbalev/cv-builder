@@ -1,8 +1,6 @@
-import styles from "../styles/ResumePreview.module.css";
-import AddressIcon from "../assets/AddressIcon.svg";
-import EmailIcon from "../assets/EmailIcon.svg";
-import PhoneIcon from "../assets/PhoneIcon.svg";
+import { AddressIcon, EmailIcon, PhoneIcon } from "./ToggleIcons";
 import formatDate from "../utils/formatDate";
+import styles from "../styles/ResumePreview.module.css";
 
 function ResumePreview({ personalDetails, education, experience, project }) {
   return (
@@ -17,11 +15,7 @@ function ResumePreview({ personalDetails, education, experience, project }) {
           <div className={styles.phone}>
             {personalDetails.phoneNumber && (
               <>
-                <img
-                  className={styles.phoneIcon}
-                  src={PhoneIcon}
-                  alt="Phone Icon"
-                />
+                <PhoneIcon />
                 <p>{personalDetails.phoneNumber}</p>
               </>
             )}
@@ -30,11 +24,7 @@ function ResumePreview({ personalDetails, education, experience, project }) {
           <div className={styles.email}>
             {personalDetails.email && (
               <>
-                <img
-                  className={styles.emailIcon}
-                  src={EmailIcon}
-                  alt="Email Icon"
-                />
+                <EmailIcon />
                 <p>{personalDetails.email}</p>
               </>
             )}
@@ -43,11 +33,7 @@ function ResumePreview({ personalDetails, education, experience, project }) {
           <div className={styles.address}>
             {personalDetails.address && (
               <>
-                <img
-                  className={styles.addressIcon}
-                  src={AddressIcon}
-                  alt="Address Icon"
-                />
+                <AddressIcon />
                 <p>{personalDetails.address}</p>
               </>
             )}
