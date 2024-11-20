@@ -3,7 +3,7 @@ import { AddButton } from "../Buttons.jsx";
 import { ChevronIcon } from "../Icons.jsx";
 import ProjectForm from "./ProjectForm.jsx";
 import ProjectOverview from "./ProjectOverview.jsx";
-import styles from "../../styles/Project/ProjectSection.module.css";
+import styles from "../../styles/Section.module.css";
 
 function ProjectSection({ project, onChange, onApply, onAdd, onRemove }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ function ProjectSection({ project, onChange, onApply, onAdd, onRemove }) {
   }
 
   return (
-    <section className={styles.projectContainer}>
+    <section className={styles.sectionContainer}>
       <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Project</h2>
         <ChevronIcon isOpen={isOpen} />

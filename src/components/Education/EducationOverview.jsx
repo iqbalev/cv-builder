@@ -1,6 +1,6 @@
-import styles from "../../styles/Education/EducationOverview.module.css";
-import formatDate from "../../utils/formatDate.js";
 import { EditButton, RemoveButton } from "../Buttons.jsx";
+import formatDate from "../../utils/formatDate.js";
+import styles from "../../styles/Overview.module.css";
 
 function EducationOverview({ length, edu, index, onEdit, onRemove }) {
   return (

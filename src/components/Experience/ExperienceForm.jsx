@@ -1,5 +1,5 @@
-import styles from "../../styles/Experience/ExperienceForm.module.css";
 import { ApplyButton, BackButton } from "../Buttons.jsx";
+import styles from "../../styles/Form.module.css";
 
 function ExperienceForm({ length, exp, index, onChange, onApply, onBack }) {
   return (

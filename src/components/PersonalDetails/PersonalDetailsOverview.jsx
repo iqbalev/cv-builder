@@ -1,5 +1,5 @@
-import styles from "../../styles/PersonalDetails/PersonalDetailsOverview.module.css";
 import { EditButton } from "../Buttons.jsx";
+import styles from "../../styles/Overview.module.css";
 
 function PersonalDetailsOverview({ personalDetails, onEdit }) {
   return (

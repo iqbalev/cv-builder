@@ -1,5 +1,5 @@
-import styles from "../../styles/Project/ProjectOverview.module.css";
 import { EditButton, RemoveButton } from "../Buttons.jsx";
+import styles from "../../styles/Overview.module.css";
 
 function ProjectOverview({ length, proj, index, onEdit, onRemove }) {
   return (

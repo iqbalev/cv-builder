@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronIcon } from "../Icons.jsx";
 import PersonalDetailsForm from "./PersonalDetailsForm.jsx";
 import PersonalDetailsOverview from "./PersonalDetailsOverview.jsx";
-import styles from "../../styles/PersonalDetails/PersonalDetailsSection.module.css";
+import styles from "../../styles/Section.module.css";
 
 function PersonalDetailsSection({ personalDetails, onChange, onApply }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ function PersonalDetailsSection({ personalDetails, onChange, onApply }) {
   }
 
   return (
-    <section className={styles.personalDetailsContainer}>
+    <section className={styles.sectionContainer}>
       <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Personal Details</h2>
         <ChevronIcon isOpen={isOpen} />

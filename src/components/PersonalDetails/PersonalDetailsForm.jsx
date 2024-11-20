@@ -1,5 +1,5 @@
-import styles from "../../styles/PersonalDetails/PersonalDetailsForm.module.css";
 import { ApplyButton, BackButton } from "../Buttons.jsx";
+import styles from "../../styles/Form.module.css";
 
 function PersonalDetailsForm({ personalDetails, onChange, onApply, onBack }) {
   return (

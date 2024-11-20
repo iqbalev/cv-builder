@@ -1,6 +1,6 @@
-import styles from "../../styles/Experience/ExperienceOverview.module.css";
-import formatDate from "../../utils/formatDate.js";
 import { EditButton, RemoveButton } from "../Buttons.jsx";
+import formatDate from "../../utils/formatDate.js";
+import styles from "../../styles/Overview.module.css";
 
 function ExperienceOverview({ length, exp, index, onEdit, onRemove }) {
   return (

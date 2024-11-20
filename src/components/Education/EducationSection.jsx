@@ -3,7 +3,7 @@ import { AddButton } from "../Buttons.jsx";
 import { ChevronIcon } from "../Icons.jsx";
 import EducationForm from "./EducationForm.jsx";
 import EducationOverview from "./EducationOverview.jsx";
-import styles from "../../styles/Education/EducationSection.module.css";
+import styles from "../../styles/Section.module.css";
 
 function EducationSection({ education, onChange, onApply, onAdd, onRemove }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ function EducationSection({ education, onChange, onApply, onAdd, onRemove }) {
   }
 
   return (
-    <section className={styles.educationContainer}>
+    <section className={styles.sectionContainer}>
       <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Education</h2>
         <ChevronIcon isOpen={isOpen} />

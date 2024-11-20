@@ -3,7 +3,7 @@ import { AddButton } from "../Buttons.jsx";
 import { ChevronIcon } from "../Icons.jsx";
 import ExperienceForm from "./ExperienceForm.jsx";
 import ExperienceOverview from "./ExperienceOverview.jsx";
-import styles from "../../styles/Experience/ExperienceSection.module.css";
+import styles from "../../styles/Section.module.css";
 
 function ExperienceSection({ experience, onChange, onApply, onAdd, onRemove }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ function ExperienceSection({ experience, onChange, onApply, onAdd, onRemove }) {
   }
 
   return (
-    <section className={styles.experienceContainer}>
+    <section className={styles.sectionContainer}>
       <div className={styles.headingIcon} role="button" onClick={handleToggle}>
         <h2 className={styles.heading}>Experience</h2>
         <ChevronIcon isOpen={isOpen} />

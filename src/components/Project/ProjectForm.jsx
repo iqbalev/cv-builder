@@ -1,5 +1,5 @@
-import styles from "../../styles/Project/ProjectForm.module.css";
 import { ApplyButton, BackButton } from "../Buttons.jsx";
+import styles from "../../styles/Form.module.css";
 
 function ProjectForm({ length, proj, index, onChange, onApply, onBack }) {
   return (

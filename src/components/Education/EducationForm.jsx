@@ -1,5 +1,5 @@
-import styles from "../../styles/Education/EducationForm.module.css";
 import { ApplyButton, BackButton } from "../Buttons.jsx";
+import styles from "../../styles/Form.module.css";
 
 function EducationForm({ length, edu, index, onChange, onApply, onBack }) {
   return (
