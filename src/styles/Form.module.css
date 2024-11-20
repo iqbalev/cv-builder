@@ -11,7 +11,7 @@
 }
 
 .heading {
-  text-transform: uppercase;
+  font-weight: normal;
 }
 
 .buttons {
@@ -21,8 +21,8 @@
 
 .form {
   display: flex;
-  gap: 10px;
   flex-direction: column;
+  gap: 10px;
 }
 
 .label {
@@ -46,4 +46,27 @@
   resize: vertical;
   background-color: #f0f0f0;
   line-height: inherit;
+}
+
+.endActive {
+  display: flex;
+  flex-direction: column;
+}
+
+.isCurrentlyActive {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.label.isCurrentlyActive {
+  font-weight: initial;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.input.isCurrentlyActive {
+  cursor: pointer;
+  margin: 0;
 }
