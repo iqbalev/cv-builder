@@ -127,7 +127,7 @@ function App() {
         startDate: "",
         isCurrentlyActive: false,
         endDate: "",
-        responsibilities: [],
+        responsibilities: [""],
       },
     ]);
   }
