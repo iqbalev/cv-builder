@@ -51,7 +51,9 @@ function ResumePreview({ personalDetails, education, experience, project }) {
                 <div className={styles.schoolDegree}>
                   {education.school && (
                     <p>
-                      {education.school}, {education.degree}
+                      {education.school}
+                      <span className={styles.separator}>|</span>
+                      {education.degree}
                     </p>
                   )}
                 </div>
@@ -98,9 +100,14 @@ function ResumePreview({ personalDetails, education, experience, project }) {
               </div>
 
               <ul className={styles.responsibilities}>
-                {experience.responsibilities.map((responsibility, index) => (
-                  <li key={index}>{responsibility}</li>
-                ))}
+                {experience.responsibilities.map(
+                  (responsibility, index) =>
+                    responsibility && (
+                      <li className={styles.responsibility} key={index}>
+                        {responsibility}
+                      </li>
+                    )
+                )}
               </ul>
             </div>
           ))}
