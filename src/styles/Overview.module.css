@@ -27,10 +27,25 @@
 
 .link {
   text-decoration: none;
+  color: initial;
 }
 
 .subHeading {
   font-weight: normal;
+}
+
+.text.list {
+  list-style-type: none;
+  padding-left: 14px;
+  text-indent: -14px;
+}
+
+.text.list::before {
+  content: "- ";
+}
+
+.text.listNoStyle {
+  list-style-type: none;
 }
 
 .notAvailable {

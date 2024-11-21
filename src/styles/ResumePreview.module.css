@@ -5,15 +5,22 @@
 .projectContainer {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  gap: 10px;
+  padding: 10px;
+  line-height: 1.5;
 }
 
 .educationHeading,
 .experienceHeading,
 .projectHeading {
-  text-transform: uppercase;
   border-bottom: 1px solid #000000;
+}
+
+.educationDetailsContainer,
+.experienceDetailsContainer,
+.projectDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .separator {
@@ -40,12 +47,6 @@
 }
 
 /* Education */
-.educationDetailsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .educationDetails {
   display: flex;
   justify-content: space-between;
@@ -57,17 +58,10 @@
 }
 
 /* Experience */
-.experienceDetailsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .experienceDetails {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 20px;
 }
 
 .titleCompanyStartEnd {
@@ -75,13 +69,17 @@
   justify-content: space-between;
 }
 
-/* Project */
-.projectDetailsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.responsibility {
+  list-style-type: none;
+  padding-left: 14px;
+  text-indent: -14px;
 }
 
+.responsibility::before {
+  content: "- ";
+}
+
+/* Project */
 .projectDetails {
   display: flex;
   flex-direction: column;
