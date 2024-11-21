@@ -65,7 +65,14 @@ function ExperienceOverview({ length, exp, index, onEdit, onRemove }) {
         <ul className={styles.details}>
           <h4 className={styles.subHeading}>Responsibilities</h4>
           {exp.responsibilities.map((responsibility, index) => (
-            <li className={styles.text} key={index}>
+            <li
+              className={
+                responsibility
+                  ? `${styles.text} ${styles.list}`
+                  : `${styles.text} ${styles.listNoStyle}`
+              }
+              key={index}
+            >
               {responsibility ? (
                 responsibility
               ) : (
