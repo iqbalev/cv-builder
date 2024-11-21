@@ -95,6 +95,7 @@ function ExperienceForm({ length, exp, index, onChange, onApply, onBack }) {
             className={styles.textarea}
             name="responsibilities"
             value={exp.responsibilities.join("\n")}
+            placeholder={`Implementing UI/UX designs provided by the design team\nConsuming and rendering APIs from the backend\nCreating a responsive and interactive website`}
             onChange={(e) => onChange(e, index)}
           ></textarea>
         </label>
