@@ -1,0 +1,53 @@
+.overviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.headingButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heading {
+  font-weight: normal;
+}
+
+.buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: initial;
+}
+
+.subHeading {
+  font-weight: normal;
+}
+
+.text.list {
+  list-style-type: none;
+  padding-left: 14px;
+  text-indent: -14px;
+}
+
+.text.list::before {
+  content: "- ";
+}
+
+.text.listNoStyle {
+  list-style-type: none;
+}
+
+.notAvailable {
+  font-style: italic;
+}

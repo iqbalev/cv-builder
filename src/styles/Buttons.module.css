@@ -1,26 +1,40 @@
+.addButton,
 .toggleButton,
 .editButton,
-.applyButton {
+.applyButton,
+.backButton,
+.removeButton {
   cursor: pointer;
   border-radius: 4px;
   border: transparent;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .editButton,
-.applyButton {
+.applyButton,
+.backButton,
+.removeButton {
   padding: 8px;
-  flex: 1;
   margin-top: 20px;
 }
 
+.addButton,
 .toggleButton {
   padding: 4px;
 }
 
+.removeButton {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.plusIcon,
 .chevronIcon {
   width: 16px;
   height: 16px;
+}
+
+.chevronIcon {
   transition: transform 0.3s ease;
 }
 

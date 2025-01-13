@@ -1,17 +1,30 @@
 /* Grouping */
 .personalDetailsContainer,
 .educationContainer,
-.experienceContainer {
+.experienceContainer,
+.projectContainer {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  gap: 10px;
+  padding: 10px;
+  line-height: 1.5;
 }
 
 .educationHeading,
-.experienceHeading {
-  text-transform: uppercase;
+.experienceHeading,
+.projectHeading {
   border-bottom: 1px solid #000000;
+}
+
+.educationDetailsContainer,
+.experienceDetailsContainer,
+.projectDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.separator {
+  margin: 0 2px;
 }
 
 /* Personal Details */
@@ -33,33 +46,45 @@
   align-items: center;
 }
 
-.phoneIcon,
-.emailIcon,
-.addressIcon {
-  width: 20px;
-  height: 20px;
-}
-
 /* Education */
 .educationDetails {
   display: flex;
   justify-content: space-between;
 }
 
-.fieldUniversityDegree {
+.fieldSchoolDegree {
   display: flex;
   flex-direction: column;
 }
 
-/* Experience*/
+/* Experience */
 .experienceDetails {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 20px;
 }
 
 .titleCompanyStartEnd {
   display: flex;
   justify-content: space-between;
+}
+
+.responsibility {
+  list-style-type: none;
+  padding-left: 14px;
+  text-indent: -14px;
+}
+
+.responsibility::before {
+  content: "- ";
+}
+
+/* Project */
+.projectDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  text-decoration: none;
 }

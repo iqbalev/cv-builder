@@ -1,10 +1,8 @@
+import { AddressIcon, EmailIcon, PhoneIcon } from "./Icons.jsx";
+import formatDate from "../utils/formatDate.js";
 import styles from "../styles/ResumePreview.module.css";
-import AddressIcon from "../assets/AddressIcon.svg";
-import EmailIcon from "../assets/EmailIcon.svg";
-import PhoneIcon from "../assets/PhoneIcon.svg";
-import formatDate from "../utils/formatDate";
 
-function ResumePreview({ personalDetails, education, experience }) {
+function ResumePreview({ personalDetails, education, experience, project }) {
   return (
     <>
       <section className={styles.personalDetailsContainer}>
@@ -17,11 +15,7 @@ function ResumePreview({ personalDetails, education, experience }) {
           <div className={styles.phone}>
             {personalDetails.phoneNumber && (
               <>
-                <img
-                  className={styles.phoneIcon}
-                  src={PhoneIcon}
-                  alt="Phone Icon"
-                />
+                <PhoneIcon />
                 <p>{personalDetails.phoneNumber}</p>
               </>
             )}
@@ -30,11 +24,7 @@ function ResumePreview({ personalDetails, education, experience }) {
           <div className={styles.email}>
             {personalDetails.email && (
               <>
-                <img
-                  className={styles.emailIcon}
-                  src={EmailIcon}
-                  alt="Email Icon"
-                />
+                <EmailIcon />
                 <p>{personalDetails.email}</p>
               </>
             )}
@@ -43,11 +33,7 @@ function ResumePreview({ personalDetails, education, experience }) {
           <div className={styles.address}>
             {personalDetails.address && (
               <>
-                <img
-                  className={styles.addressIcon}
-                  src={AddressIcon}
-                  alt="Address Icon"
-                />
+                <AddressIcon />
                 <p>{personalDetails.address}</p>
               </>
             )}
@@ -57,57 +43,96 @@ function ResumePreview({ personalDetails, education, experience }) {
 
       <section className={styles.educationContainer}>
         <h2 className={styles.educationHeading}>Education</h2>
-        <div className={styles.educationDetails}>
-          <div className={styles.fieldUniversityDegree}>
-            <p>{education.fieldOfStudy}</p>
-            <div className={styles.universityDegree}>
-              {education.university && (
-                <p>
-                  {education.university}, {education.degree}
-                </p>
-              )}
-            </div>
-          </div>
+        <div className={styles.educationDetailsContainer}>
+          {education.map((education, index) => (
+            <div key={index} className={styles.educationDetails}>
+              <div className={styles.fieldSchoolDegree}>
+                <p>{education.fieldOfStudy}</p>
+                <div className={styles.schoolDegree}>
+                  {education.school && (
+                    <p>
+                      {education.school}
+                      <span className={styles.separator}>|</span>
+                      {education.degree}
+                    </p>
+                  )}
+                </div>
+              </div>
 
-          <div className={styles.startEnd}>
-            {education.startDate && (
-              <p>
-                {formatDate(education.startDate)}-
-                {education.isCurrentlyActive
-                  ? "Present"
-                  : formatDate(education.endDate)}
-              </p>
-            )}
-          </div>
+              <div className={styles.startEnd}>
+                {education.startDate && (
+                  <p>
+                    {formatDate(education.startDate)}
+                    <span className={styles.separator}>-</span>
+                    {education.isCurrentlyActive
+                      ? "Present"
+                      : formatDate(education.endDate)}
+                  </p>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       <section className={styles.experienceContainer}>
         <h2 className={styles.experienceHeading}>Experience</h2>
-        <div className={styles.experienceDetails}>
-          <div className={styles.titleCompanyStartEnd}>
-            <div className={styles.titleCompany}>
-              <p>{experience.company}</p>
-              <p>{experience.jobTitle}</p>
-            </div>
+        <div className={styles.experienceDetailsContainer}>
+          {experience.map((experience, index) => (
+            <div key={index} className={styles.experienceDetails}>
+              <div className={styles.titleCompanyStartEnd}>
+                <div className={styles.titleCompany}>
+                  <p>{experience.company}</p>
+                  <p>{experience.jobTitle}</p>
+                </div>
 
-            <div className={styles.startEnd}>
-              {experience.startDate && (
-                <p>
-                  {formatDate(experience.startDate)}-
-                  {experience.isCurrentlyActive
-                    ? "Present"
-                    : formatDate(experience.endDate)}
-                </p>
-              )}
-            </div>
-          </div>
+                <div className={styles.startEnd}>
+                  {experience.startDate && (
+                    <p>
+                      {formatDate(experience.startDate)}
+                      <span className={styles.separator}>-</span>
+                      {experience.isCurrentlyActive
+                        ? "Present"
+                        : formatDate(experience.endDate)}
+                    </p>
+                  )}
+                </div>
+              </div>
 
-          <ul className={styles.responsibilities}>
-            {experience.responsibilities.map((responsibility, index) => (
-              <li key={index}>{responsibility}</li>
-            ))}
-          </ul>
+              <ul className={styles.responsibilities}>
+                {experience.responsibilities.map(
+                  (responsibility, index) =>
+                    responsibility && (
+                      <li className={styles.responsibility} key={index}>
+                        {responsibility}
+                      </li>
+                    )
+                )}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.projectContainer}>
+        <h2 className={styles.projectHeading}>Project</h2>
+        <div className={styles.projectDetailsContainer}>
+          {project.map((project, index) => (
+            <div key={index} className={styles.projectDetails}>
+              <p>
+                {project.projectName}
+                {project.link && (
+                  <>
+                    <span className={styles.separator}>|</span>
+                    <a className={styles.link} href={project.link}>
+                      Link
+                    </a>
+                  </>
+                )}
+              </p>
+              <p>{project.summary}</p>
+            </div>
+          ))}
         </div>
       </section>
     </>

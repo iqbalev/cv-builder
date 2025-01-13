@@ -1,0 +1,21 @@
+.addressIcon,
+.emailIcon,
+.phoneIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.chevronIcon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.chevronIcon.rotate {
+  transform: rotate(-180deg);
+}
+
+.plusMinIcon {
+  width: 12px;
+  height: 12px;
+}
